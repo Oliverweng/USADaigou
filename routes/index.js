@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var http = require('https');
+var request = require('request');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -58,56 +58,44 @@ router.post('/adduser', function(req, res) {
     });
 });
 
-router.post('/getScholarships', function(req, res) {
-	var stringJsonBody = JSON.stringify(req.body),
+router.post('/scholarships', function(req, res) {
+    var stringJsonBody = JSON.stringify(jsonBody),
         options = {
-            hostname: 'api.scholarshipexperts.com',
-            path: '/scholarshipfinder/v1/scholarships.json?auth=eec6029a-4c6d-4042-81d6-7e755c0cd21c',
+            url: 'https://api.scholarshipexperts.com/scholarshipfinder/v1/scholarships.json?auth=eec6029a-4c6d-4042-81d6-7e755c0cd21c',
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            }
+            body: stringJsonBody,
+            json: true,
+            timeout: 6000
         };
-    sendXDomainRequest(options, function (data) {res.send('data is ' + data)}, 4000, function () {}, stringJsonBody);
+    sendXDomainRequest(options, function (data) {res.send('data is ' + data)}, function () {});
 });
 
-function sendXDomainRequest(options, successCallBack, timeout, timeOutCallBack, reqBody) {
-    var req = http.request(options, function (response) {
-        var str = '';
-        response.on('data', function (chunk) {
-            str += chunk;
-            // console.log('got data with data chunk:' + chunk);
-        });
-        response.on('end', function () {
-            console.log('Cross Domain API Call Succeeded!');
-            var escaped = str.replace(/^throw [^;]*;/, '');
-            var jsonObj = JSON.parse(escaped);
-            successCallBack(jsonObj);
-        });
-    });
-    if (reqBody) {
-        req.write(reqBody);
-    }
-    req.end();
-    req.on('socket', function (socket) {
-        socket.setTimeout(parseInt(timeout, 10));
-        socket.on('timeout', function () {
+router.get('/community', function(req, res) {
+    var options = {
+            url: 'https://communityuat.saltmoney.org/api/core/v3/contents?sort=dateCreatedDesc&amp;fields=%40all&amp;count=100&amp;startIndex=0&filter=tag(jobs)',
+            method: 'GET',
+            json: true,
+            timeout: parseInt(cmtimeout, 10),
+            auth: {
+                'user': username,
+                'pass': password
+            }
+        };
+    sendXDomainRequest(options, function (data) {res.send('data is ' + data)}, function () {});
+});
+
+function sendXDomainRequest(options, successCallBack, timeOutCallBack) {
+    request(options, function (error, response, body) {
+        if (error && error.code === 'ETIMEDOUT') {
             console.log('Cross Domain API Call Timed Out!');
-            req.abort();
             timeOutCallBack();
-        });
-    });
-    req.on('error', function (e) {
-        console.error(e);
-        successCallBack('');
+        }
+        else if (!error && response.statusCode === 200) {
+            console.log('Cross Domain API Call Succeeded!');
+            successCallBack();
+        }
     });
 }
- 
-// Search Scholarships
-exports.searchScholarships = function (jsonBody, successCallBack) {
-
-};
-
 
 
 module.exports = router;
