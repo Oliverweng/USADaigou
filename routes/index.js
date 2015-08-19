@@ -59,7 +59,7 @@ router.post('/adduser', function(req, res) {
 });
 
 router.post('/scholarships', function(req, res) {
-    var stringJsonBody = JSON.stringify(jsonBody),
+    var stringJsonBody = JSON.stringify(req.body),
         options = {
             url: 'https://api.scholarshipexperts.com/scholarshipfinder/v1/scholarships.json?auth=eec6029a-4c6d-4042-81d6-7e755c0cd21c',
             method: 'POST',
@@ -75,10 +75,10 @@ router.get('/community', function(req, res) {
             url: 'https://communityuat.saltmoney.org/api/core/v3/contents?sort=dateCreatedDesc&amp;fields=%40all&amp;count=100&amp;startIndex=0&filter=tag(jobs)',
             method: 'GET',
             json: true,
-            timeout: parseInt(cmtimeout, 10),
+            timeout: 3000,
             auth: {
-                'user': username,
-                'pass': password
+                'user': 'contentmodule',
+                'pass': 'Password_1'
             }
         };
     sendXDomainRequest(options, function (data) {res.send('data is ' + data)}, function () {});
