@@ -7,12 +7,6 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'this is my first nodeJS app' });
 });
 
-/* GET Hello World page. */
-router.get('/helloworld', function(req, res) {
-    res.render('helloworld', { title: 'Beautiful Yan Lu' });
-});
-
-
 /* GET Userlist page. */
 router.get('/userlist', function(req, res) {
     var db = req.db;

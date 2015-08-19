@@ -1,0 +1,14 @@
+<html>
+<head>
+	<title>
+		{title}
+	</title>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+</head>
+<body>
+	<script type="text/javascript" scr="/javascripts/global.js"></script>
+	<script type="text/javascript" scr="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+	{+dynamicBody}
+	{/dynamicBody}
+</body>
+</html>
