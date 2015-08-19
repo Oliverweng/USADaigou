@@ -67,7 +67,7 @@ router.post('/scholarships', function(req, res) {
             json: true,
             timeout: 6000
         };
-    sendXDomainRequest(options, function (data) {res.send('data is ' + data)}, function () {});
+    sendXDomainRequest(options, function (data) {res.send('data begins: ' + data)}, function () {});
 });
 
 router.get('/community', function(req, res) {
@@ -81,7 +81,7 @@ router.get('/community', function(req, res) {
                 'pass': 'Password_1'
             }
         };
-    sendXDomainRequest(options, function (data) {res.send('data is ' + data)}, function () {});
+    sendXDomainRequest(options, function (data) {res.send('data begins: ' + data)}, function () {});
 });
 
 function sendXDomainRequest(options, successCallBack, timeOutCallBack) {
@@ -92,7 +92,7 @@ function sendXDomainRequest(options, successCallBack, timeOutCallBack) {
         }
         else if (!error && response.statusCode === 200) {
             console.log('Cross Domain API Call Succeeded!');
-            successCallBack();
+            successCallBack(body);
         }
     });
 }
