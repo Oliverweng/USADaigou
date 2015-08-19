@@ -64,9 +64,9 @@ router.post('/scholarships', function(req, res) {
             url: 'https://api.scholarshipexperts.com/scholarshipfinder/v1/scholarships.json?auth=eec6029a-4c6d-4042-81d6-7e755c0cd21c',
             method: 'POST',
             body: stringJsonBody,
-            timeout: 3000
+            timeout: 4000
         };
-    sendXDomainRequest(options, function (data) {res.send('data begins: ' + data)}, function (error) {res.send('error is: ' + error)});
+    sendXDomainRequest(options, function (data) {res.send(data)}, function (error) {res.send('error is: ' + error)});
 });
 
 router.get('/community', function(req, res) {
@@ -80,7 +80,7 @@ router.get('/community', function(req, res) {
                 'pass': 'Password_1'
             }
         };
-    sendXDomainRequest(options, function (data) {res.send('data begins: ' + data)}, function () {});
+    sendXDomainRequest(options, function (data) {res.send(data)}, function () {});
 });
 
 function sendXDomainRequest(options, successCallBack, timeOutCallBack) {
@@ -91,7 +91,10 @@ function sendXDomainRequest(options, successCallBack, timeOutCallBack) {
         }
         else if (!error && response.statusCode === 200) {
             console.log('Cross Domain API Call Succeeded!');
-            successCallBack(body);
+            //clean up data
+            var escaped = body.replace(/^throw [^;]*;/, ''); 
+            var result = JSON.parse(escaped);
+            successCallBack(result);
         }
     });
 }
