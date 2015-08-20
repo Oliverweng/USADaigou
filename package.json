@@ -15,7 +15,8 @@
     "serve-favicon": "~2.3.0",
     "mongodb": "~2.0.40",
     "monk": "~1.0.1",
-    "request": "2.61.0"
+    "request": "2.61.0",
+    "consolidate": "0.13.1"
   },
   "engines": {
     "node": "0.12.7"
