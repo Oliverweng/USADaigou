@@ -4,10 +4,10 @@
 		{title}
 	</title>
 	<link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+	<script scr="/javascripts/global.js"></script>
+	<script scr="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 </head>
 <body>
-	<script type="text/javascript" scr="/javascripts/global.js"></script>
-	<script type="text/javascript" scr="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 	{>"header" /}
 	{+dynamicBody}
 	{/dynamicBody}
