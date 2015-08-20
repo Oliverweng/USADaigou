@@ -53,13 +53,12 @@ router.post('/adduser', function(req, res) {
 });
 
 router.post('/scholarships', function(req, res) {
-    var stringJsonBody = JSON.stringify(req.body),
-        options = {
-            url: 'https://api.scholarshipexperts.com/scholarshipfinder/v1/scholarships.json?auth=eec6029a-4c6d-4042-81d6-7e755c0cd21c',
-            method: 'POST',
-            body: stringJsonBody,
-            timeout: 4000
-        };
+var options = { method: 'POST',
+  url: 'https://api.scholarshipexperts.com/scholarshipfinder/v1/scholarships.json',
+  qs: { auth: 'eec6029a-4c6d-4042-81d6-7e755c0cd21c' },
+  headers: { 'content-type': 'application/json' },
+  body: req.body,
+  json: true };
     sendXDomainRequest(options, function (data) {res.send(data)}, function (error) {res.send('error is: ' + error)});
 });
 
