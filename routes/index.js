@@ -4,7 +4,7 @@ var request = require('request');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'this is my first nodeJS app' });
+  res.render('index');
 });
 
 /* GET Userlist page. */

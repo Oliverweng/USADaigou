@@ -1,5 +1,6 @@
 {>"page_parent" /}
 
+
 {<dynamicBody}
 	<h1>helloworld</h1>
 {/dynamicBody}

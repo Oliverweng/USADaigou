@@ -10,7 +10,7 @@ $(document).ready(function() {
     // Username link click
     $('#userList table tbody').on('click', 'td a.linkshowuser', showUserInfo);
 
-    // Add User button click
+    // Add User button click 
     $('#btnAddUser').on('click', addUser);
 
     // Delete User link click
