@@ -4,8 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-// var cons = require('consolidate');
-// New Code
+var cons = require('consolidate');
 var mongo = require('mongodb');
 var monk = require('monk');
 var db = monk('mongodb://oweng:Password1@ds031873.mongolab.com:31873/heroku_98hbv9x6');
@@ -16,12 +15,12 @@ var users = require('./routes/users');
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
-// app.engine('dust', cons.dust);
 // app.set('views', path.join(__dirname, 'views'));
-// app.set('view engine', 'dust');
-// app.set('template_engine', 'dust');
+// app.set('view engine', 'jade');
+app.engine('dust', cons.dust);
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'dust');
+app.set('template_engine', 'dust');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
