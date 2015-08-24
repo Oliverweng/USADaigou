@@ -1,1 +1,81 @@
-<div></div>
+<div class="row no-max-width">
+    <div class="large-12 columns sticky no-padding-left no-padding-right">
+        <nav class="top-bar" data-topbar>
+            <ul class="title-area">      
+                <li class="name">
+                    <div class="row">
+                        <div class="small-2 medium-3 columns">
+                            <img class="logo-img" src="/images/us-shopping-logo.png"/>
+                        </div>
+                        <div class="small-10 medium-9 columns">
+                            <h1><a href="#">卢燕的美国正品代购小店</a></h1>
+                        </div>
+                    </div>
+                </li>
+                <li class="toggle-topbar menu-icon">
+                    <a href="#"><span>菜单</span></a>
+                </li>
+            </ul>
+            <section class="top-bar-section">
+               
+                <ul class="right">
+                    <li class="divider"></li>
+                    <li class="has-dropdown">
+                        <a href="#">代购商品</a>
+                        <ul class="dropdown">
+                            <li><label>Section Name</label></li>
+                            <li class="has-dropdown">
+                                <a class="" href="#">Has Dropdown, Level 1</a>
+                                <ul class="dropdown">
+                                    <li>
+                                        <a href="#">Dropdown Options</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Dropdown Options</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Level 2</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Subdropdown Option</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Subdropdown Option</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Subdropdown Option</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">Dropdown Option</a>
+                            </li>
+                            <li>
+                                <a href="#">Dropdown Option</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li><label>Section Name</label></li>
+                            <li>
+                                <a href="#">Dropdown Option</a>
+                            </li>
+                            <li>
+                                <a href="#">Dropdown Option</a>
+                            </li>
+                            <li>
+                                <a href="#">Dropdown Option</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#">See all →</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#">联系我们</a>
+                    </li>
+                </ul>
+            </section>
+        </nav> 
+    </div>
+</div> 
