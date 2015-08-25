@@ -36,7 +36,9 @@ app.use(function(req, res, next){
     req.db = db;
     next();
 });
-app.use(controller);
+app.use(function(req, res, next){
+    controller.setGlobalJSON(req, res, next);
+});
 app.use('/', routes);
 app.use('/users', users);
 
