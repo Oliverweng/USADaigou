@@ -8,7 +8,6 @@ var cons = require('consolidate');
 var mongo = require('mongodb');
 var monk = require('monk');
 var db = monk('mongodb://oweng:Password1@ds031873.mongolab.com:31873/heroku_98hbv9x6');
-var controller = require('./controller');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -36,9 +35,7 @@ app.use(function(req, res, next){
     req.db = db;
     next();
 });
-app.use(function(req, res, next){
-    controller.setGlobalJSON(req, res, next);
-});
+
 app.use('/', routes);
 app.use('/users', users);
 

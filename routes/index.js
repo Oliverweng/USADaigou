@@ -1,10 +1,16 @@
 var express = require('express');
 var router = express.Router();
 var request = require('request');
+var dbCalls = require('../dbCalls');
+var content = {};
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index');
+    //populate global json needed by dust pages.
+    dbCalls.getContent(req, res, function (content) {
+        res.render('index', content);
+    });
 });
 
 /* GET Userlist page. */
