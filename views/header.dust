@@ -1,6 +1,6 @@
 <div class="row no-max-width">
     <div class="large-12 columns sticky no-padding-left no-padding-right">
-        <nav class="top-bar" data-topbar>
+        <nav class="top-bar" data-topbar role="navigation">
             <ul class="title-area">      
                 <li class="name">
                     <div class="row">
@@ -17,57 +17,16 @@
                 </li>
             </ul>
             <section class="top-bar-section">
-               
                 <ul class="right">
                     <li class="divider"></li>
                     <li class="has-dropdown">
                         <a href="#">代购商品</a>
                         <ul class="dropdown">
-                            <li><label>Section Name</label></li>
-                            <li class="has-dropdown">
-                                <a class="" href="#">Has Dropdown, Level 1</a>
-                                <ul class="dropdown">
-                                    <li>
-                                        <a href="#">Dropdown Options</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Dropdown Options</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Level 2</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Subdropdown Option</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Subdropdown Option</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Subdropdown Option</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#">Dropdown Option</a>
-                            </li>
-                            <li>
-                                <a href="#">Dropdown Option</a>
-                            </li>
-                            <li class="divider"></li>
-                            <li><label>Section Name</label></li>
-                            <li>
-                                <a href="#">Dropdown Option</a>
-                            </li>
-                            <li>
-                                <a href="#">Dropdown Option</a>
-                            </li>
-                            <li>
-                                <a href="#">Dropdown Option</a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="#">See all →</a>
-                            </li>
+                            {#headerCategories}
+                                <li>
+                                    <a href="#">{name}</a>
+                                </li>
+                            {/headerCategories}
                         </ul>
                     </li>
                     <li class="divider"></li>
@@ -78,4 +37,4 @@
             </section>
         </nav> 
     </div>
-</div> 
+</div>
