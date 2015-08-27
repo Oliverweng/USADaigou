@@ -14,7 +14,9 @@
 .no-max-width {
 	max-width: none !important;
 }
-
+.max-height {
+	max-height: 44px !important;
+}
 /*Customiz CSS*/
 img.logo-img {
 	height: 30px;
