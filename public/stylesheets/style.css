@@ -42,7 +42,7 @@ img.logo-img {
         margin-left: 18px;
         margin-top: 1px;
         position: fixed;
-        z-index: 99;
+        z-index: 99; 
     }
 }
 /*medium screen only*/
