@@ -1,36 +1,53 @@
 /*Utility Classes*/
 .color-white {
-	color: white;
+    color: white;
 }
 .inline-block {
-	display: inline-block;
+    display: inline-block;
 }
 .no-padding-left {
-	padding-left: 0 !important;
+    padding-left: 0 !important;
 }
 .no-padding-right {
-	padding-right: 0 !important;
+    padding-right: 0 !important;
 }
 .no-max-width {
-	max-width: none !important;
+    max-width: none !important;
 }
 .max-height {
-	max-height: 44px !important;
+    max-height: 44px !important;
+}
+.hidden {
+    display: none !important; 
 }
 /*Customiz CSS*/
 img.logo-img {
-	height: 30px;
-	margin-left: 10px;
-	margin-top: 6px;
+    height: 30px;
+    margin-left: 10px;
+    margin-top: 6px;
 }
-
-@media only screen and (min-width: 40.0625em){
-	.top-bar .title-area {
-    	width: 55%;
-	}
+/*small screen only*/
+@media only screen and (max-width: 640px) {
+    .top-bar-section .header-categories {
+        display: block !important;
+    }
 }
-@media only screen and (min-width: 641px) and (max-width: 751px){
-	.top-bar .title-area {
-    	width: 50%;
-	}
+/*medium up*/
+@media only screen and (min-width: 641px){
+    .top-bar .title-area {
+        width: 50%;
+    }
+    img.logo-img {
+        height: 90px;
+        margin-left: 18px;
+        margin-top: 1px;
+        position: fixed;
+        z-index: 99;
+    }
+}
+/*medium screen only*/
+@media only screen and (max-width: 1024px) and (min-width: 642px) {
+    .top-bar .title-area { 
+        width: 70%;
+    }
 }
