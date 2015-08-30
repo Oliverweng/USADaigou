@@ -21,7 +21,7 @@
                     {>"partials/header_categories" /}
                     <li class="divider"></li>
                     <li>
-                        <a href="#" data-reveal-id="contact-modal">联系我们</a>
+                        <a href="#" data-reveal-id="contact-modal"><img class="small-only" src="/images/contact-icon.png" />联系我们</a>
                     </li>
                 </ul>
                 <ul class="show-for-medium-only right">

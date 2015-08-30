@@ -48,11 +48,17 @@ a span {
     background:      -o-linear-gradient(90deg, #D3959B 10%, #BFE6BA 90%); /* Opera 11.10+ */
     background:         linear-gradient(90deg, #D3959B 10%, #BFE6BA 90%); /* W3C */           
 }
+.small-only {
+    display: none;
+}
 
 /*small screen only*/
 @media only screen and (max-width: 640px) {
     .top-bar-section .header-categories {
         display: block !important;
+    }
+    .small-only {
+        display: inline-block;
     }
 }
 /*medium up*/
