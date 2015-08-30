@@ -20,12 +20,32 @@
 .hidden {
     display: none !important; 
 }
+.text-center {
+    text-align: center;
+}
+
 /*Customiz CSS*/
 img.logo-img {
     height: 30px;
     margin-left: 10px;
     margin-top: 6px;
 }
+a span {
+    font-family: fantasy;
+}
+.top-bar-section img {
+    height: 40px;
+}
+.contact-overlay {
+    max-height: 327px;
+    min-height: inherit !important;
+    background: -webkit-linear-gradient(90deg, #D3959B 10%, #BFE6BA 90%); /* Chrome 10+, Saf5.1+ */
+    background:    -moz-linear-gradient(90deg, #D3959B 10%, #BFE6BA 90%); /* FF3.6+ */
+    background:     -ms-linear-gradient(90deg, #D3959B 10%, #BFE6BA 90%); /* IE10 */
+    background:      -o-linear-gradient(90deg, #D3959B 10%, #BFE6BA 90%); /* Opera 11.10+ */
+    background:         linear-gradient(90deg, #D3959B 10%, #BFE6BA 90%); /* W3C */           
+}
+
 /*small screen only*/
 @media only screen and (max-width: 640px) {
     .top-bar-section .header-categories {
@@ -35,14 +55,16 @@ img.logo-img {
 /*medium up*/
 @media only screen and (min-width: 641px){
     .top-bar .title-area {
-        width: 50%;
+        width: 30%;
     }
     img.logo-img {
         height: 90px;
-        margin-left: 18px;
-        margin-top: 1px;
         position: fixed;
-        z-index: 99; 
+        z-index: 99;
+        margin-left: 0;
+        margin-right: 0;
+        left: 10px;
+        top: 0px;
     }
 }
 /*medium screen only*/

@@ -1,0 +1,7 @@
+{#headerCategories}
+    <li class="divider"></li>
+    <li>
+        <a href="#"><img src="/images/{image}.png"/>
+        {name}</a>
+    </li>
+{/headerCategories}
