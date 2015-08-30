@@ -34,7 +34,7 @@
                     </li>
                     <li class="divider"></li>
                     <li>
-                        <a href="#" data-reveal-id="contact-modal">联系我们</a>
+                        <a href="#" data-reveal-id="contact-modal"><img src="/images/contact-icon.png" />联系我们</a>
                     </li>
                 </ul>
             </section>
@@ -43,15 +43,15 @@
 </div>
 <div id="contact-modal" class="reveal-modal medium contact-overlay" data-reveal>
     <div class="row">
-        <div class="small-5 columns text-center margin-top">
-            <p><i class="fa fa-qq fa-lg"></i>: 275271384</p>
+        <div class="small-5 columns text-center">
+            <p><i class="fa fa-qq fa-lg"></i><br/>275271384</p>
             <img src="images/qq-qr.jpg" />
         </div>
         <div class="small-2 columns text-center">
             <img src="/images/vertical-divider.png" />
         </div>
-        <div class="small-5 columns text-center margin-top">
-            <p><i class="fa fa-weixin fa-lg"></i>: Catherine87914</p>
+        <div class="small-5 columns text-center">
+            <p><i class="fa fa-weixin fa-lg"></i><br/>Catherine87914</p>
             <img src="images/weixin-qr.jpg" />
         </div>
     </div>
