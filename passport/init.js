@@ -1,6 +1,6 @@
 var login = require('./login');
 var signup = require('./signup');
-var User = require('../models/user');
+var models = require('../mongooseModels');
 
 module.exports = function(passport){
 
@@ -11,7 +11,7 @@ module.exports = function(passport){
     });
 
     passport.deserializeUser(function(id, done) {
-        User.findById(id, function(err, user) {
+        models.user.findById(id, function(err, user) {
             console.log('deserializing user:',user);
             done(err, user);
         });

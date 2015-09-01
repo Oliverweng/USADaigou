@@ -1,5 +1,5 @@
 var LocalStrategy   = require('passport-local').Strategy;
-var User = require('../models/user');
+var models = require('../mongooseModels');
 var bCrypt = require('bcrypt-nodejs');
 
 module.exports = function(passport){
@@ -11,7 +11,7 @@ module.exports = function(passport){
 
             findOrCreateUser = function(){
                 // find a user in Mongo with provided username
-                User.findOne({ 'username' :  username }, function(err, user) {
+                models.user.findOne({ 'username' :  username }, function(err, user) {
                     // In case of any error, return using the done method
                     if (err){
                         console.log('Error in SignUp: '+err);
