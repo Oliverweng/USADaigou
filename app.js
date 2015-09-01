@@ -7,10 +7,12 @@ var bodyParser = require('body-parser');
 var cons = require('consolidate');
 var passport = require('passport');
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
-var authenticationManager = require('./authenticationManager');
-var dbCalls = require('./dbCalls');
+//DB connection
+var dbConfig = require('./db');
+var mongoose = require('mongoose');
+var autoIncrement = require('mongoose-auto-increment');
+mongoose.connect(dbConfig.url);
+autoIncrement.initialize(mongoose);
 
 var app = express();
 
@@ -29,19 +31,25 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(require('express-session')({ secret: 'keyboard cat', resave: false, saveUninitialized: false }));
-// Initialize Passport and restore authentication state, if any, from the
-// session.
+
+// Configuring Passport
+var passport = require('passport');
+var expressSession = require('express-session');
+app.use(expressSession({secret: 'myScretKey'}));
 app.use(passport.initialize());
 app.use(passport.session());
 
-dbCalls.getUsers(function (users) {
-    authenticationManager(app, users);
-});
+// Using the flash middleware provided by connect-flash to store messages in session
+// and displaying in templates
+var flash = require('connect-flash');
+app.use(flash());
 
+// Initialize Passport
+var initPassport = require('./passport/init');
+initPassport(passport);
 
+var routes = require('./routes/index')(passport);
 app.use('/', routes);
-app.use('/users', users);
 
 
 
