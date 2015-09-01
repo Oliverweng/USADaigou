@@ -1,5 +1,5 @@
 var express = require('express');
-var dbCalls = require('../dbCalss.js');
+var dbCalls = require('../dbCalls');
 var router = express.Router();
 
 var isAuthenticated = function (req, res, next) {
