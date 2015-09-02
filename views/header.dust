@@ -4,12 +4,14 @@
             <ul class="title-area">      
                 <li class="name">
                     <div class="row">
-                        <div class="small-2 medium-3 columns">
-                            <img class="logo-img" src="/images/us-shopping-logo.png"/>
-                        </div>
-                        <div class="small-10 medium-9 columns">
-                            <h1><a href="#" class="max-height"><span>Welcome to</span> 美国正品代购网</a></h1>
-                        </div>
+                        <a href="/" class="max-height">
+                            <div class="small-2 medium-3 columns">
+                                <img class="logo-img" src="/images/us-shopping-logo.png"/>
+                            </div>
+                            <div class="small-10 medium-9 columns">
+                                <h1 class="color-white"><span>Welcome to</span> 美国正品代购网</h1>
+                            </div>
+                        </a>
                     </div>
                 </li>
                 <li class="toggle-topbar menu-icon">
@@ -21,7 +23,7 @@
                     {>"partials/header_categories" /}
                     <li class="divider"></li>
                     <li>
-                        <a href="#" data-reveal-id="contact-modal"><img class="small-only" src="/images/contact-icon.png" />联系我们</a>
+                        <a href="/login"><img class="small-only" src="/images/contact-icon.png" />登录</a>
                     </li>
                 </ul>
                 <ul class="show-for-medium-only right">
@@ -34,26 +36,10 @@
                     </li>
                     <li class="divider"></li>
                     <li>
-                        <a href="#" data-reveal-id="contact-modal"><img src="/images/contact-icon.png" />联系我们</a>
+                        <a href="/login"><img class="small-only" src="/images/contact-icon.png" />登录</a>
                     </li>
                 </ul>
             </section>
         </nav> 
     </div>
-</div>
-<div id="contact-modal" class="reveal-modal medium contact-overlay" data-reveal>
-    <div class="row">
-        <div class="small-5 columns text-center">
-            <p><i class="fa fa-qq fa-lg"></i><br/>275271384</p>
-            <img src="images/qq-qr.jpg" />
-        </div>
-        <div class="small-2 columns text-center">
-            <img src="/images/vertical-divider.png" />
-        </div>
-        <div class="small-5 columns text-center">
-            <p><i class="fa fa-weixin fa-lg"></i><br/>Catherine87914</p>
-            <img src="images/weixin-qr.jpg" />
-        </div>
-    </div>
-    <i class="fa fa-times close-reveal-modal"></i>
 </div>

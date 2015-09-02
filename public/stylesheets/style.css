@@ -39,6 +39,9 @@ a span {
 .top-bar-section img {
     height: 40px;
 }
+.footer-link-container img {
+    height: 20px;
+}
 .contact-overlay {
     max-height: 327px;
     min-height: inherit !important;
