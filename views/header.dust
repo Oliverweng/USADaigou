@@ -1,18 +1,35 @@
-<div class="row no-max-width">
-    <div class="large-12 columns sticky no-padding-left no-padding-right">
-        <nav class="nav-bar" data-topbar role="navigation">
-            <div class="row header-first-row">
-                <div class="columns small-6 color-white">
-                    <div class="language-select padding-top-9">
-                        <a><span>中文</span></a><a><span>English</span></a>
-                    </div>
-                </div>
-                <div class="columns small-6 text-right padding-top-9">
-                    <div class="login-register-div">
-                        <a>登录</a><a>注册</a>
-                    </div>
+<div class="sticky header-container">
+    <nav class="nav-bar" data-topbar role="navigation">
+        <div class="row header-row border-bottom">
+            <div class="columns small-6 color-white">
+                <div class="language-select padding-top-9">
+                    <a><span>中文</span></a><a><span>English</span></a>
                 </div>
             </div>
-        </nav>
-    </div>
+            <div class="columns small-6 text-right padding-top-9">
+                <div class="login-register-div">
+                    <a>登录</a><a>注册</a>
+                </div>
+            </div>
+        </div>
+        <div class="row header-row border-bottom">
+            <div class="columns small-6 color-white">
+                <div class="row">
+                    <a href="/" class="max-height">
+                        <div class="small-2 medium-3 columns">
+                            <img class="logo-img" src="/images/us-shopping-logo.png"/>
+                        </div>
+                        <div class="small-10 medium-9 columns">
+                            <h5 class="color-white"><span>Welcome to</span> Cathy美国代购</h5>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="columns small-6 padding-top-9">
+                <div class="login-register-div">
+                    <a>登录</a><a>注册</a>
+                </div>
+            </div>
+        </div>
+    </nav>
 </div>

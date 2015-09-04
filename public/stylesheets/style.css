@@ -32,12 +32,17 @@
 .padding-top-9 {
     padding-top: 9px;
 }
+.border-bottom {
+    border-bottom: 1px solid #808080;
+}
 
 /*Customiz CSS*/
 body {
     background-image: url("/images/bg.png") !important;
 }
-
+.row {
+    max-width: 64.5rem !important;
+}
 img.logo-img {
     height: 30px;
     margin-left: 10px;
@@ -63,9 +68,17 @@ nav.nav-bar {
     background-color: rgba(0, 0, 0, 0.4);
     height: 100px;
 }
-.header-first-row {
+.header-container {
+    max-width: 62.6rem;
+    margin: 0 auto;
+}
+.header-container.fixed {
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+}
+.header-row {
     height: 40px;
-    border-bottom: 1px solid #808080;
     font-size: 13px;
 }
 
