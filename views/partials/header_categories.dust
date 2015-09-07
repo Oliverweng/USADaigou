@@ -1,7 +1,10 @@
 {#headerCategories}
-    <li class="divider"></li>
-    <li>
-        <a href="#"><img src="/images/{image}.png"/>
-        {name}</a>
-    </li>
+	<div class="columns small-2 category left">
+		<a href="#" class="color-white">
+			<div class="inner js-header-category text-center">
+	        	<img src="/images/{image}.png"/>
+	        	{name}
+    		</div>
+    	</a>
+    </div>
 {/headerCategories}

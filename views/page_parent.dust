@@ -8,8 +8,8 @@
 		{+title}Daigou-US{/title}
 	</title>
 	<link rel="shortcut icon" href="/images/us-shopping-logo.ico">
-	<link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
 	<link rel="stylesheet" type="text/css" href="/plugins/foundation/foundation-css/foundation.css" />
+	<link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
 	<link rel="stylesheet" href="/plugins/font-awesome/css/font-awesome.min.css">
 
 	<script src="/plugins/foundation/foundation-js/vendor/jquery.js"></script>

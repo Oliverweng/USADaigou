@@ -1,9 +1,1 @@
-// TO DO Needs require.
-$(document).ready(function () {
-    $(document).foundation({
-        topbar : {
-            mobile_show_parent_link: false,
-            back_text: '上一级'
-        }
-    });
-});
+// TO DO Needs require.$(document).ready(function () {    var $headerCategory = $('.js-header-category');    $headerCategory.click(function (e) {        $headerCategory.removeClass('active');        $(e.currentTarget).addClass('active');    });    $(document).foundation();});
