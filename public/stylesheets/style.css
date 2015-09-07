@@ -134,6 +134,10 @@ nav.nav-bar {
 .category .inner.active{
     border-bottom: 3px solid rgba(220, 20, 60, 0.7);
 }
+.category {
+    padding-left: 10px;
+    padding-right: 10px;
+}
 .seprator a:nth-child(1) {
     padding-right: 5px;
     border-right: 1px solid #808080;
