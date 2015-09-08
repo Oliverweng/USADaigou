@@ -7,9 +7,15 @@
                 </div>
             </div>
             <div class="columns small-6 text-right padding-top-9">
-                <div class="login-register-div seprator">
-                    <a href="/login"><span>登录</span></a><a><span>注册<span></a>
-                </div>
+                    {^isAuthenticated}
+                        <div class="login-register-div seprator">
+                            <a href="/login"><span>登录</span></a><a><span>注册<span></a>
+                        </div>
+                    {:else}
+                        <div class="hello-firstname-container">
+                            <a>你好, {user.firstname}</a>
+                        </div>
+                    {/isAuthenticated} 
             </div>
         </div>
         <div class="row header-row second">
