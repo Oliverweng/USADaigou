@@ -1,10 +1,12 @@
 {#headerCategories}
 	<div class="category left">
-		<a href="#" class="color-white">
-			<div class="inner js-header-category text-center">
+		
+			<div class="inner text-center js-category-inner" data-index="{$idx}">
+				<a href="#" class="color-white js-header-category">
 	        	<img src="/images/{image}.png"/>
 	        	{name}
+	        	</a>
     		</div>
-    	</a>
+    	
     </div>
 {/headerCategories}

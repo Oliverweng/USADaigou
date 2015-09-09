@@ -1,6 +1,6 @@
 <div class="header-container">
     <nav class="nav-bar" data-topbar role="navigation">
-        <div class="row header-row border-bottom">
+        <div class="row header-row border-bottom bg-black-transparent">
             <div class="columns small-6 color-white">
                 <div class="language-select padding-top-9 seprator">
                     <a class="chinese"><span>中文</span></a><a class="english"><span>English</span></a>
@@ -18,7 +18,7 @@
                     {/isAuthenticated} 
             </div>
         </div>
-        <div class="row header-row second">
+        <div class="row header-row second bg-black-transparent">
             <div class="columns small-6 color-white padding-top-6">
                 <a href="/" class="max-height">
                     <img class="logo-img" src="/images/us-shopping-logo.png"/>
@@ -36,7 +36,7 @@
                 </div>
             </div>
         </div>
-        <div class="row header-row third">
+        <div class="row header-row third bg-black-transparent js-sticky-row">
             <div class="columns small-12">
                     {>"partials/header_categories" /}
             </div>
