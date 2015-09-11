@@ -24,14 +24,17 @@ module.exports = function(passport){
                     } else {
                         // if there is no user with that email
                         // create the user
-                        var newUser = new User();
+                        var newUser = new models.user();
 
                         // set the user's local credentials
                         newUser.username = username;
                         newUser.password = createHash(password);
                         newUser.email = req.param('email');
-                        newUser.firstName = req.param('firstName');
-                        newUser.lastName = req.param('lastName');
+                        newUser.firstname = req.param('firstname');
+                        newUser.lastname = req.param('lastname');
+                        newUser.age = req.param('age');
+                        newUser.location = req.param('location');
+                        newUser.gender = req.param('gender');
 
                         // save the user
                         newUser.save(function(err) {

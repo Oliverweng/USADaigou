@@ -1,45 +1,48 @@
-<div class="row no-max-width">
-    <div class="large-12 columns sticky no-padding-left no-padding-right">
-        <nav class="top-bar" data-topbar role="navigation">
-            <ul class="title-area">      
-                <li class="name">
-                    <div class="row">
-                        <a href="/" class="max-height">
-                            <div class="small-2 medium-3 columns">
-                                <img class="logo-img" src="/images/us-shopping-logo.png"/>
-                            </div>
-                            <div class="small-10 medium-9 columns">
-                                <h1 class="color-white"><span>Welcome to</span> 美国正品代购网</h1>
-                            </div>
-                        </a>
+<div class="header-container">
+    <nav class="nav-bar" data-topbar role="navigation">
+        <div class="row header-row border-bottom bg-black-transparent">
+            <div class="columns small-6 color-white">
+                <div class="language-select padding-top-9 seprator">
+                    <a class="chinese"><span>中文</span></a><a class="english"><span>English</span></a>
+                </div>
+            </div>
+            <div class="columns small-6 text-right padding-top-9">
+                    {^isAuthenticated}
+                        <div class="login-register-div seprator">
+                            <a href="/login"><span>登录</span></a><a href="/signup"><span>注册<span></a>
+                        </div>
+                    {:else}
+                        <div class="hello-firstname-container seprator">
+                            <a>你好, {user.firstname}</a><a href="/signout">退出</a>
+                        </div>
+                    {/isAuthenticated} 
+            </div>
+        </div>
+        <div class="row header-row second bg-black-transparent">
+            <div class="columns small-6 color-white padding-top-6">
+                <a href="/" class="max-height">
+                    <img class="logo-img" src="/images/us-shopping-logo.png"/>
+                    <h5 class="color-white inline-block"><span>Welcome to</span> Cathy 美国代购</h5>
+                </a>
+            </div>
+            <div class="columns small-6 padding-top-15">
+                <div class="row collapse header-searchbar right">
+                    <div class="small-9 columns">
+                        <input type="text" class="round-left no-margin-bottom search-input" placeholder="Search Term">
                     </div>
-                </li>
-                <li class="toggle-topbar menu-icon">
-                    <a href="#"><span>菜单</span></a>
-                </li>
-            </ul>
-            <section class="top-bar-section">
-                <ul class="header-categories show-for-large-up right">
+                    <div class="small-3 columns">
+                        <a href="#" class="button round-right postfix search-btn no-margin-bottom"><i class="fa fa-search"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row header-row third bg-black-transparent js-sticky-row">
+            <div class="columns small-12">
                     {>"partials/header_categories" /}
-                    <li class="divider"></li>
-                    <li>
-                        <a href="/login"><img class="small-only" src="/images/contact-icon.png" />登录</a>
-                    </li>
-                </ul>
-                <ul class="show-for-medium-only right">
-                    <li class="divider"></li>                 
-                    <li class="has-dropdown">
-                        <a href="#"><img src="/images/cart-icon.png"/>代购商品</a>
-                        <ul class="dropdown">
-                            {>"partials/header_categories" /}
-                        </ul>
-                    </li>
-                    <li class="divider"></li>
-                    <li>
-                        <a href="/login"><img class="small-only" src="/images/contact-icon.png" />登录</a>
-                    </li>
-                </ul>
-            </section>
-        </nav> 
-    </div>
+            </div>
+            <div class="columns small-3 padding-top-6">
+
+            </div>
+        </div>
+  </nav>
 </div>

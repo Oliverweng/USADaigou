@@ -18,6 +18,8 @@ module.exports = function(passport){
     router.get('/', function(req, res) {
         dbCalls.getContent(function (content) {
             // Display main page.
+            content.isAuthenticated = req.isAuthenticated();
+            content.user = req.user;
             content.message = req.flash('message');
             res.render('index', content);
         });
@@ -31,7 +33,7 @@ module.exports = function(passport){
 
     /* Handle Login POST */
     router.post('/login', passport.authenticate('login', {
-        successRedirect: '/home',
+        successRedirect: '/',
         failureRedirect: '/login',
         failureFlash : true  
     }));
@@ -43,7 +45,7 @@ module.exports = function(passport){
 
     /* Handle Registration POST */
     router.post('/signup', passport.authenticate('signup', {
-        successRedirect: '/home',
+        successRedirect: '/',
         failureRedirect: '/signup',
         failureFlash : true  
     }));

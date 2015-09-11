@@ -1,7 +1,7 @@
 {#headerCategories}
-    <li class="divider"></li>
-    <li>
-        <a href="#"><img src="/images/{image}.png"/>
-        {name}</a>
-    </li>
+<div class="category left js-category-container" data-index="{$idx}">
+    <div class="inner text-center">
+        <a href="#" class="color-white js-header-category"><img src="/images/{image}.png"/>{name}</a>
+    </div>
+</div>
 {/headerCategories}

@@ -26,19 +26,48 @@
 .text-center {
     text-align: center;
 }
-
+.small-only {
+    display: none;
+}
+.padding-top-9 {
+    padding-top: 9px;
+}
+.padding-top-6 {
+    padding-top: 6px;
+}
+.padding-top-15 {
+    padding-top: 15px;
+}
+.border-bottom {
+    border-bottom: 1px solid #808080;
+}
+.no-margin-bottom {
+    margin-bottom: 0 !important;
+}
+.round-left {
+    border-radius: 30px 0px 0px 30px !important;
+}
+.round-right {
+    border-radius: 0px 30px 30px 0px !important;
+}
+.bg-black-transparent {
+    background-color: rgba(0, 0, 0, 0.4);
+}
 /*Customiz CSS*/
+body {
+    background-image: url("/images/bg.png");
+}
+.row {
+    max-width: 64.5rem;
+}
 img.logo-img {
     height: 30px;
-    margin-left: 10px;
-    margin-top: 6px;
+    padding-right: 20px;
 }
 a span {
     font-family: fantasy;
 }
-.top-bar-section img {
-    height: 40px;
-}
+
 .footer-link-container img {
     height: 20px;
 }
@@ -51,37 +80,81 @@ a span {
     background:      -o-linear-gradient(90deg, #D3959B 10%, #BFE6BA 90%); /* Opera 11.10+ */
     background:         linear-gradient(90deg, #D3959B 10%, #BFE6BA 90%); /* W3C */           
 }
-.small-only {
-    display: none;
+nav.nav-bar {
+    height: 140px;
+}
+.header-container {
+    max-width: 62.6rem;
+    margin: 0 auto;
+}
+.header-container.fixed {
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+}
+.header-row {
+    height: 40px;
+    font-size: 13px;
+}
+.header-searchbar.row.collapse {
+    width: 192px;
+}
+.header-searchbar input.search-input {
+    height: 26px;
+    background-color: #D3D3D3;
+}
+.header-searchbar a.search-btn {
+    height: 26px;
+    line-height: 1.5rem;
+    padding: 0rem 2rem 1.0625rem 1rem;
+} 
+.header-row.second {
+    height: 56px;
+}
+.header-searchbar input.search-input::-webkit-input-placeholder {
+   color: #808080;
 }
 
+.header-searchbar input.search-input:-moz-placeholder { /* Firefox 18- */
+   color: #808080;  
+}
+
+.header-searchbar input.search-input::-moz-placeholder {  /* Firefox 19+ */
+   color: #808080;  
+}
+
+.header-searchbar input.search-input:-ms-input-placeholder {  
+   color: #808080;  
+}
+.header-row.third img {
+    height: 40px;
+}
+.category:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.category.active{
+    border-bottom: 3px solid rgba(220, 20, 60, 0.7);
+}
+.category {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.seprator a:nth-child(1) {
+    padding-right: 5px;
+    border-right: 1px solid #808080;
+}
+.seprator a:nth-child(2) {
+    padding-left: 5px;
+}
 /*small screen only*/
 @media only screen and (max-width: 640px) {
-    .top-bar-section .header-categories {
-        display: block !important;
-    }
-    .small-only {
-        display: inline-block;
-    }
+
 }
 /*medium up*/
 @media only screen and (min-width: 641px){
-    .top-bar .title-area {
-        width: 30%;
-    }
-    img.logo-img {
-        height: 90px;
-        position: fixed;
-        z-index: 99;
-        margin-left: 0;
-        margin-right: 0;
-        left: 10px;
-        top: 0px;
-    }
+
 }
 /*medium screen only*/
 @media only screen and (max-width: 1024px) and (min-width: 641px) {
-    .top-bar .title-area { 
-        width: 56%;
-    }
+
 }

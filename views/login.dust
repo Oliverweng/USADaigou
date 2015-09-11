@@ -1,13 +1,15 @@
 {>"page_parent" /}
 
-
+{<dynamicTitle}
+    登录-Daigou-US
+{/dynamicTitle}
 {<dynamicBody}
     <div class="row">
         <div class="large-3 columns">
             <div class="login-box">
                 <div class="row">
                     <div class="large-12 columns">
-                        <form>
+                        <form action="/login" method="POST">
                             <div class="row">
                                 <div class="large-12 columns">
                                     <input type="text" name="username" placeholder="Username" />
@@ -28,7 +30,6 @@
                 </div>
             </div>
         </div>
-        <div class="">
     </div>
-    <h1 class="js-error-message"></h1>
+    <h1 class="js-error-message">{message}</h1>
 {/dynamicBody}

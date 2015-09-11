@@ -1,9 +1,1 @@
-// TO DO Needs require.
-$(document).ready(function () {
-    $(document).foundation({
-        topbar : {
-            mobile_show_parent_link: false,
-            back_text: '上一级'
-        }
-    });
-});
+// TO DO Needs require.$(document).ready(function () {    $('.js-sticky-row').stickThis();    var $headerCategory = $('.js-header-category');    $headerCategory.click(function (e) {        $('.js-category-container').removeClass('active');        var $currentlyCategoryContainer = $(e.currentTarget).closest('.js-category-container');        $('.js-category-container[data-index="' + $currentlyCategoryContainer.attr('data-index') + '"]').addClass('active');    });    $(document).foundation();});
