@@ -132,7 +132,7 @@ nav.nav-bar {
 .category:hover {
     background-color: rgba(0, 0, 0, 0.4);
 }
-.category .inner.active{
+.category.active{
     border-bottom: 3px solid rgba(220, 20, 60, 0.7);
 }
 .category {

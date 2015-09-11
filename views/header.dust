@@ -9,11 +9,11 @@
             <div class="columns small-6 text-right padding-top-9">
                     {^isAuthenticated}
                         <div class="login-register-div seprator">
-                            <a href="/login"><span>登录</span></a><a><span>注册<span></a>
+                            <a href="/login"><span>登录</span></a><a href="/signup"><span>注册<span></a>
                         </div>
                     {:else}
-                        <div class="hello-firstname-container">
-                            <a>你好, {user.firstname}</a>
+                        <div class="hello-firstname-container seprator">
+                            <a>你好, {user.firstname}</a><a href="/signout">退出</a>
                         </div>
                     {/isAuthenticated} 
             </div>
