@@ -12,6 +12,13 @@ var isAuthenticated = function (req, res, next) {
     res.redirect('/');
 }
 
+var isAdmin = function (req, res, next) {
+    if (req.isAuthenticated() && req.user.role === 'admin') {
+        return next();
+    }
+    res.redirect('/');
+}
+
 module.exports = function(passport){
 
     /* GET login page. */
@@ -52,7 +59,7 @@ module.exports = function(passport){
     }));
 
     /* GET Home Page */
-    router.get('/admin', isAuthenticated, function(req, res){
+    router.get('/admin', isAdmin, function(req, res){
         dbCalls.getContent(req, function (content) {
             // Display main page.
             res.render('admin-panel/admin_index', content);
