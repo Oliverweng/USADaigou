@@ -38,6 +38,12 @@
 .padding-top-15 {
     padding-top: 15px;
 }
+.margin-right {
+    margin-right: 20px;
+}
+.margin-left {
+    margin-left: 20px;
+}
 .border-bottom {
     border-bottom: 1px solid #808080;
 }
@@ -139,12 +145,13 @@ nav.nav-bar {
     padding-left: 10px;
     padding-right: 10px;
 }
-.seprator a:nth-child(1) {
+.seprator a:nth-child(n) {
+    padding-left: 5px;
     padding-right: 5px;
     border-right: 1px solid #808080;
 }
-.seprator a:nth-child(2) {
-    padding-left: 5px;
+.seprator a:last-child {
+    border-right: none;
 }
 /*small screen only*/
 @media only screen and (max-width: 640px) {

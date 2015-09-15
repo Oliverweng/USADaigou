@@ -12,14 +12,14 @@
                 <div class="row">
                     <div class="large-12 columns">
                         <form action="/signup" method="POST">
-                            <input type="text" name="username" placeholder="Username" required="" autofocus="">
-                            <input type="password" name="password" placeholder="Password" required="" >
-                            <input type="email" name="email" placeholder="Email" required="" >
-                            <input type="text" name="firstname" placeholder="First Name" required="">
-                            <input type="text" name="lastname" placeholder="Last Name" required="">
-                            <input type="text" name="age" placeholder="Age" required="">
-                            <input type="text" name="location" placeholder="Location" required="">
-                            <input type="text" name="gender" placeholder="Gender" required="">
+                            <input type="text" name="username" placeholder="用户名" required="" autofocus="">
+                            <input type="password" name="password" placeholder="密码" required="" >
+                            <input type="email" name="email" placeholder="电子邮箱" required="" >
+                            <input type="text" name="firstname" placeholder="名" required="">
+                            <input type="text" name="lastname" placeholder="姓" required="">
+                            <input type="text" name="age" placeholder="年龄" required="">
+                            <input type="text" name="location" placeholder="住址" required="">
+                            <input type="text" name="gender" placeholder="性别" required="">
                             <input type="submit" class="button expand" value="注册"/>
                             <span class="clearfix"></span>
                         </form>

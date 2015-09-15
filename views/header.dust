@@ -13,7 +13,7 @@
                         </div>
                     {:else}
                         <div class="hello-firstname-container seprator">
-                            <a>你好, {user.firstname}</a><a href="/signout">退出</a>
+                            <a>你好, {user.firstname}</a>{?user.isAdmin}<a href="/admin">管理</a>{/user.isAdmin}<a href="/signout">退出</a>
                         </div>
                     {/isAuthenticated} 
             </div>

@@ -1,0 +1,17 @@
+{>"page_parent" /}
+{<dynamicTitle}
+    管理-Daigou-US
+{/dynamicTitle}
+{<dynamicBody}
+    <div class="row">
+        <div class="small-12 columns text-center">
+            <a href="#" class="button radius large margin-right">上架</a>
+            <a href="#" class="button radius large margin-left">下架</a>
+        </div>
+    </div>
+    <h1 class="js-error-message">{message}</h1>
+{/dynamicBody}
+
+{<dynamicFooter}
+    
+{/dynamicFooter}

@@ -16,11 +16,8 @@ module.exports = function(passport){
 
     /* GET login page. */
     router.get('/', function(req, res) {
-        dbCalls.getContent(function (content) {
+        dbCalls.getContent(req, function (content) {
             // Display main page.
-            content.isAuthenticated = req.isAuthenticated();
-            content.user = req.user;
-            content.message = req.flash('message');
             res.render('index', content);
         });
     });
@@ -28,7 +25,11 @@ module.exports = function(passport){
     /* Login page*/
     router.get('/login', function(req, res) {
         // Display the Login page with any flash message, if any
-        res.render('login', { message: req.flash('message') });
+        dbCalls.getContent(req, function (content) {
+            // Display main page.
+            res.render('login', content);
+        });
+        
     });
 
     /* Handle Login POST */
@@ -51,8 +52,11 @@ module.exports = function(passport){
     }));
 
     /* GET Home Page */
-    router.get('/home', isAuthenticated, function(req, res){
-        res.render('home', { user: req.user });
+    router.get('/admin', isAuthenticated, function(req, res){
+        dbCalls.getContent(req, function (content) {
+            // Display main page.
+            res.render('admin-panel/admin_index', content);
+        });
     });
 
     /* Handle Logout */

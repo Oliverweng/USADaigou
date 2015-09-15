@@ -11,7 +11,8 @@ var userSchema = new mongoose.Schema({
     lastname:String,
     age: String,
     location: String,
-    gender: String
+    gender: String,
+    role: String
 });
 
 var categorySchema = new mongoose.Schema({
