@@ -59,12 +59,18 @@
 .bg-black-transparent {
     background-color: rgba(0, 0, 0, 0.4);
 }
+.padding-top-100 {
+    padding-top: 100px;
+}
 /*Customiz CSS*/
 body {
     background-image: url("/images/bg.png");
 }
 .row {
     max-width: 64.5rem;
+}
+.body-container {
+    min-height: 400px;
 }
 img.logo-img {
     height: 30px;

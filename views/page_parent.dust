@@ -11,12 +11,11 @@
     <link rel="stylesheet" type="text/css" href="/plugins/foundation/foundation-css/foundation.css" />
     <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
     <link rel="stylesheet" href="/plugins/font-awesome/css/font-awesome.min.css">
-
-    <script src="/plugins/foundation/foundation-js/vendor/jquery.js"></script>
-    <script src="/plugins/foundation/foundation-js/foundation.min.js"></script>
-    <script src="/plugins/foundation/foundation-js/vendor/modernizr.js"></script>
-    <script src="/plugins/jq-sticky-anything.min.js"></script>
-    <script src="/javascripts/global.js"></script>
+    <script src="/javascripts/require.js"></script>
+    <script src="/javascripts/requirejs.config"></script>
+    <script type="text/javascript">
+        require(['jquery', 'foundation', 'modernizr', 'stickyAnything', 'global']);
+    </script>
 </head>
 <body>
     {+dynamicHeader}
