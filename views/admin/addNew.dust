@@ -1,0 +1,22 @@
+{>"page_parent" /}
+
+{<dynamicTitle}
+    上架-Daigou-US
+{/dynamicTitle}
+
+{<dynamicScript}
+    <script type="text/javascript">
+        require(['multiFile']);
+    </script>>
+{/dynamicScript}
+
+{<dynamicBody}
+<div class="body-container">
+    <div class="row padding-top-100">
+        <form>
+            <input type="file" multiple class="multi with-preview" />
+        </form>
+    </div>
+    <h1 class="js-error-message">{message}</h1>
+</div>
+{/dynamicBody}

@@ -58,11 +58,18 @@ module.exports = function(passport){
         failureFlash : true  
     }));
 
-    /* GET Home Page */
+    /* GET Admin Page */
     router.get('/admin', isAdmin, function(req, res){
         dbCalls.getContent(req, function (content) {
             // Display main page.
-            res.render('admin-panel/admin_index', content);
+            res.render('admin/index', content);
+        });
+    });
+
+    router.get('/admin/addNew', isAdmin, function(req, res){
+        dbCalls.getContent(req, function (content) {
+            // Display main page.
+            res.render('admin/addNew', content);
         });
     });
 

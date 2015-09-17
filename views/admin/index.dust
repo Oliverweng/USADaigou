@@ -6,7 +6,7 @@
 <div class="body-container">
     <div class="row padding-top-100">
         <div class="small-12 columns text-center">
-            <a href="#" class="button radius large margin-right">上架</a>
+            <a href="/admin/addNew" class="button radius large margin-right">上架</a>
             <a href="#" class="button radius large margin-left">下架</a>
         </div>
     </div>

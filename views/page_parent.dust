@@ -16,6 +16,8 @@
     <script type="text/javascript">
         require(['jquery', 'foundation', 'modernizr', 'stickyAnything', 'global']);
     </script>
+    {+dynamicScript}
+    {/dynamicScript}
 </head>
 <body>
     {+dynamicHeader}
