@@ -14,7 +14,9 @@
     <script src="/javascripts/require.js"></script>
     <script src="/javascripts/requirejs.config"></script>
     <script type="text/javascript">
-        require(['jquery', 'foundation', 'modernizr', 'stickyAnything', 'global']);
+        require(['jquery', 'modernizr', 'global'], function ($) {
+            jQuery = $;
+        });
     </script>
     {+dynamicScript}
     {/dynamicScript}

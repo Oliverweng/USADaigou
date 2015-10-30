@@ -36,7 +36,6 @@ module.exports = function(passport){
             // Display main page.
             res.render('login', content);
         });
-        
     });
 
     /* Handle Login POST */
@@ -59,18 +58,20 @@ module.exports = function(passport){
     }));
 
     /* GET Admin Page */
-    router.get('/admin', isAdmin, function(req, res){
+    router.get('/admin/:page*?', isAdmin, function(req, res){
+        var pageName = req.params.page;
         dbCalls.getContent(req, function (content) {
             // Display main page.
-            res.render('admin/index', content);
+            if (pageName) {
+                res.render('admin/' + pageName, content);
+            } else {
+                res.send('The page doesn\'t exist');
+            }
+            
         });
     });
-
-    router.get('/admin/addNew', isAdmin, function(req, res){
-        dbCalls.getContent(req, function (content) {
-            // Display main page.
-            res.render('admin/addNew', content);
-        });
+    router.post('/itemCreation', isAdmin, function (req, res) {
+        res.send('post accpected');
     });
 
     /* Handle Logout */
