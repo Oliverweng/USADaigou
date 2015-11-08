@@ -12,13 +12,13 @@
 
 {<dynamicBody}
 <div class="body-container">
-    <form action="/itemCreation" method="POST" enctype="multipart/form-data">
-        <h1>步骤1 － 上传图片</h1>
-        <div class="row padding-top-100">
+        <h1>请填入相关信息</h1>
+        <div class="row">
+            <input type="text" id="itemName" placeholder="商品名称"/>
+            <textarea id="itemDescription" placeholder="商品描述。。。"></textarea>
             <input type="file" class="multi with-preview" />
-            <input class="submit" type="submit" value="create" />
+            <input class="submit" type="submit" value="create" id="js-submit-btn" />
         </div>
         <h1 class="js-error-message">{message}</h1>
-    </form>
 </div>
 {/dynamicBody}

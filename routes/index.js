@@ -71,6 +71,12 @@ module.exports = function(passport){
         });
     });
     router.post('/itemCreation', isAdmin, function (req, res) {
+        var fs = require('fs'),
+            imageBase64 = req.body.itemImages,
+            imageBase64Data = imageBase64.replace(/^data:image\/png;base64,/, '');
+            fs.writeFile('public/images/items/out.png', imageBase64Data, 'base64', function (err) {
+                console.log(err); 
+            });
         res.send('post accpected');
     });
 
