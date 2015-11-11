@@ -7,9 +7,11 @@ require(['jquery', 'underscore'], function ($, _) {
                     return $(element).attr('src');
                 }),
                 itemName = $('#itemName').val(),
-                itemDes = $('#itemDescription').val();
+                itemDes = $('#itemDescription').val(),
+                itemAlias = $('#itemAlias').val(),
+                itemCategory = $('#itemCategory').val();
             if (images && itemName && itemDes) {
-                $.post('/itemCreation', {itemName: itemName, itemDescription: itemDes, itemImages: images.toString()}).done(function (data) {
+                $.post('/itemCreation', {itemCategory: itemCategory, itemName: itemName, itemDes: itemDes, itemAlias: itemAlias, itemImages: images.toString()}).done(function (data) {
                     console.log('data returned is: ' + data);
                 });
             }

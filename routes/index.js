@@ -1,6 +1,7 @@
 var express = require('express');
 var dbCalls = require('../dbCalls');
 var router = express.Router();
+var models = require('../mongooseModels');
 
 var isAuthenticated = function (req, res, next) {
     // if user is authenticated in the session, call the next() to call the next request handler 
@@ -63,6 +64,7 @@ module.exports = function(passport){
         dbCalls.getContent(req, function (content) {
             // Display main page.
             if (pageName) {
+                content.message = req.flash('message');
                 res.render('admin/' + pageName, content);
             } else {
                 res.send('The page doesn\'t exist');
@@ -71,13 +73,38 @@ module.exports = function(passport){
         });
     });
     router.post('/itemCreation', isAdmin, function (req, res) {
-        var fs = require('fs'),
-            imageBase64 = req.body.itemImages,
-            imageBase64Data = imageBase64.replace(/^data:image\/png;base64,/, '');
-            fs.writeFile('public/images/items/out.png', imageBase64Data, 'base64', function (err) {
-                console.log(err); 
+        //check for the passed in object.
+        var itemName = req.body.itemName,
+            itemDes = req.body.itemDes,
+            itemAlias = req.body.itemAlias,
+            itemImages = req.body.itemImages;
+            itemCategory = req.body.itemCategory;
+        if (itemName && itemDes && itemAlias && itemImages && itemCategory) {
+            // var fs = require('fs'),
+            //     imageBase64 = req.body.itemImages,
+            //     imageBase64Data = imageBase64.replace(/^data:image\/png;base64,/, '');
+            //     fs.writeFile('public/images/items/out.png', imageBase64Data, 'base64', function (err) {
+            //         console.log(err); 
+            //     });
+            var newItem = new models.item();
+            newItem.name = itemName;
+            newItem.alias = itemAlias;
+            newItem.description = itemDes;
+            newItem.categoryId = parseInt(itemCategory, 10);
+
+            // save the user
+            newItem.save(function(err) {
+                if (err){
+                    console.log('Error in Saving item: ' + err);
+                    throw err;  
+                }
+                console.log('Item saved succesfully');
+                res.send('post accpected');
             });
-        res.send('post accpected');
+        } else {
+            req.flash('message', 'Please fill out all the fields!');
+        }
+
     });
 
     /* Handle Logout */

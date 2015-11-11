@@ -15,7 +15,13 @@
         <h1>请填入相关信息</h1>
         <div class="row">
             <input type="text" id="itemName" placeholder="商品名称"/>
+            <input type="text" id="itemAlias" placeholder="商品简称(英文)" />
             <textarea id="itemDescription" placeholder="商品描述。。。"></textarea>
+            <select id="itemCategory">
+                {#headerCategories}
+                    <option value="{_id}" >{name}</option>
+                {/headerCategories}
+            </select>
             <input type="file" class="multi with-preview" />
             <input class="submit" type="submit" value="create" id="js-submit-btn" />
         </div>
