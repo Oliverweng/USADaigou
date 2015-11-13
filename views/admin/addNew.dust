@@ -4,27 +4,67 @@
     上架-Daigou-US
 {/dynamicTitle}
 
-{<dynamicScript}
-    <script type="text/javascript">
-        require(['multiFile', 'javascripts/addNew']);
-    </script>
-{/dynamicScript}
-
 {<dynamicBody}
 <div class="body-container">
-        <h1>请填入相关信息</h1>
         <div class="row">
-            <input type="text" id="itemName" placeholder="商品名称"/>
-            <input type="text" id="itemAlias" placeholder="商品简称(英文)" />
-            <textarea id="itemDescription" placeholder="商品描述。。。"></textarea>
-            <select id="itemCategory">
-                {#headerCategories}
-                    <option value="{_id}" >{name}</option>
-                {/headerCategories}
-            </select>
-            <input type="file" class="multi with-preview" />
-            <input class="submit" type="submit" value="create" id="js-submit-btn" />
+            <div class="small-12 columns">
+                <h1>请填入商品信息</h1>
+            </div>
         </div>
+        <form data-abide="ajax" id="addNewForm" >
+            <div class="row">
+                <div class="small-4 columns">
+                    <label for="itemName">商品名字
+                        <input type="text" name="itemName" id="itemName" placeholder="商品名称" required/>
+                    </label>
+                    <small class="error">请填写商品名称</small>
+                </div>
+                <div class="small-4 columns">
+                    <label for="itemAlias">商品简称(英文)
+                        <input type="text" name="itemAlias" id="itemAlias" placeholder="商品简称(英文)" required pattern="alpha"/>
+                    </label>
+                    <small class="error">请填写商品简称(英文)</small>
+                </div>
+                <div class="small-4 columns">
+                    <label for="itemPrice">商品价格
+                        <input type="text" name="itemPrice" id="itemPrice" placeHolder="价格" required pattern="number"/>
+                    </label>
+                    <small class="error">请填写商品价格</small>
+                </div>
+            </div>
+            <div class="row">
+                <div class="small-12 columns">
+                    <label for="itemDescription">商品描述
+                        <textarea id="itemDescription" name="itemDescription" placeholder="商品描述。。。" required></textarea>
+                    </label>
+                    <small class="error">请填写商品描述</small>
+                </div>
+            </div>
+            <div class="row">
+                <div class="small-6 columns">
+                    <select id="itemCategory" name="itemCategory" required>
+                            <option value="">请选择商品种类</option>
+                        {#headerCategories}
+                            <option value="{_id}" >{name}</option>
+                        {/headerCategories}
+                    </select>
+                    <small class="error">请选择商品种类</small>
+                </div>
+                <div class="small-6 columns">
+                    <label for="itemImages">商品图片上传
+                        <input type="file" name="itemImages" class="multi with-preview" />
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="small-12 columns text-right">
+                    <input class="submit button" type="submit" value="创建" />
+                </div>
+            </div>
+        </form>
         <h1 class="js-error-message">{message}</h1>
 </div>
 {/dynamicBody}
+<script type="text/javascript">
+    require(['javascripts/addNew']);
+</script>

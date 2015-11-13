@@ -77,19 +77,24 @@ module.exports = function(passport){
         var itemName = req.body.itemName,
             itemDes = req.body.itemDes,
             itemAlias = req.body.itemAlias,
-            itemImages = req.body.itemImages;
+            itemPrice = req.body.itemPrice,
+            itemImages = req.body['itemImages[]'];
             itemCategory = req.body.itemCategory;
-        if (itemName && itemDes && itemAlias && itemImages && itemCategory) {
-            // var fs = require('fs'),
-            //     imageBase64 = req.body.itemImages,
-            //     imageBase64Data = imageBase64.replace(/^data:image\/png;base64,/, '');
-            //     fs.writeFile('public/images/items/out.png', imageBase64Data, 'base64', function (err) {
-            //         console.log(err); 
-            //     });
+        if (itemName && itemDes && itemAlias && itemImages && itemCategory && itemPrice) {
+            var fs = require('fs');
+            if (typeof itemImages === 'string') {
+                itemImages = [itemImages];
+            }
+            itemImages.forEach(function (ele, ind, list) {
+                fs.writeFile('public/images/items/' + itemAlias + '-' + ind + '.png', ele, 'base64', function (err) {
+                    console.log(err); 
+                });
+            });
             var newItem = new models.item();
             newItem.name = itemName;
             newItem.alias = itemAlias;
             newItem.description = itemDes;
+            newItem.price = itemPrice;
             newItem.categoryId = parseInt(itemCategory, 10);
 
             // save the user

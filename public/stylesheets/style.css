@@ -1,6 +1,6 @@
 /*Utility Classes*/
 .color-white {
-    color: white;
+    color: #D8D8D8;
 }
 .inline-block {
     display: inline-block;
@@ -65,6 +65,9 @@
 /*Customiz CSS*/
 body {
     background-image: url("/images/bg.png");
+}
+label, p, h1, h2, h3, h4, h5{
+    color: #D8D8D8 !important;
 }
 .row {
     max-width: 64.5rem;

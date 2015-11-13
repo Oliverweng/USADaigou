@@ -25,8 +25,10 @@ var itemsSchema = new mongoose.Schema({
     name: String,
     alias: String,
     description: String,
+    price: Number,
     categoryId: Number
 }, { collection: 'itemsCollection' });
+
 
 //using autoIncrement plugin to auto increment ids
 userSchema.plugin(autoIncrement.plugin, 'User');
