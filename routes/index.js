@@ -2,6 +2,7 @@ var express = require('express');
 var dbCalls = require('../dbCalls');
 var router = express.Router();
 var models = require('../mongooseModels');
+var async = require('async');
 
 var isAuthenticated = function (req, res, next) {
     // if user is authenticated in the session, call the next() to call the next request handler 
@@ -73,43 +74,65 @@ module.exports = function(passport){
         });
     });
     router.post('/itemCreation', isAdmin, function (req, res) {
-        //check for the passed in object.
+        //TODO: need to check whether any existing item has the name yet.
+        //check for the passed in object and define variables.
         var itemName = req.body.itemName,
             itemDes = req.body.itemDes,
             itemAlias = req.body.itemAlias,
             itemPrice = req.body.itemPrice,
-            itemImages = req.body['itemImages[]'];
-            itemCategory = req.body.itemCategory;
+            itemImages = req.body['itemImages[]'],
+            itemCategory = req.body.itemCategory,
+            errorContainer = [],
+            asyncTasks = [],
+            success = 'success';
         if (itemName && itemDes && itemAlias && itemImages && itemCategory && itemPrice) {
             var fs = require('fs');
             if (typeof itemImages === 'string') {
                 itemImages = [itemImages];
             }
             itemImages.forEach(function (ele, ind, list) {
-                fs.writeFile('public/images/items/' + itemAlias + '-' + ind + '.png', ele, 'base64', function (err) {
-                    console.log(err); 
+                asyncTasks.push(function (callback) {
+                    fs.writeFile('public/images/items/' + itemAlias + '-' + ind + '.png', ele, 'base64', function (err) {
+                        err = 1;
+                        if (err) {
+                            console.log(err);
+                            errorContainer.push(err);
+                        }
+                        callback();
+                    });
                 });
             });
-            var newItem = new models.item();
-            newItem.name = itemName;
-            newItem.alias = itemAlias;
-            newItem.description = itemDes;
-            newItem.price = itemPrice;
-            newItem.categoryId = parseInt(itemCategory, 10);
-
-            // save the user
-            newItem.save(function(err) {
-                if (err){
-                    console.log('Error in Saving item: ' + err);
-                    throw err;  
+            async.parallel(asyncTasks, function() {
+                if (!errorContainer.length) {
+                    var newItem = new models.item();
+                    newItem.name = itemName;
+                    newItem.alias = itemAlias;
+                    newItem.description = itemDes;
+                    newItem.price = itemPrice;
+                    newItem.categoryId = parseInt(itemCategory, 10);
+                    // save the user
+                    newItem.save(function(err) {
+                        if (err){
+                            console.log('Error in Saving item: ' + err);
+                            errorContainer.push(err);
+                            req.flash('message', 'Error in Saving item: ' + err);
+                            req.flash()
+                        } else {
+                            console.log('Item saved succesfully');
+                            req.flash('message', 'Item Saved Successfully!');
+                            req.flash('success', true);
+                        }
+                        res.send(req.flash());
+                    });
+                } else {
+                    req.flash('message', 'Something wrong with image saving.');
+                    res.send(req.flash());
                 }
-                console.log('Item saved succesfully');
-                res.send('post accpected');
             });
         } else {
             req.flash('message', 'Please fill out all the fields!');
+            res.send(req.flash());
         }
-
     });
 
     /* Handle Logout */
