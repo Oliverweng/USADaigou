@@ -14,16 +14,16 @@
         <form data-abide="ajax" id="addNewForm" >
             <div class="row">
                 <div class="small-4 columns">
-                    <label for="itemName">商品名字
-                        <input type="text" name="itemName" id="itemName" placeholder="商品名称" required/>
-                    </label>
-                    <small class="error">请填写商品名称</small>
-                </div>
-                <div class="small-4 columns">
                     <label for="itemAlias">商品简称(英文)
                         <input type="text" name="itemAlias" id="itemAlias" placeholder="商品简称(英文)" required pattern="alpha"/>
                     </label>
                     <small class="error">请填写商品简称(英文)</small>
+                </div>
+                <div class="small-4 columns">
+                    <label for="itemName">商品名字
+                        <input type="text" name="itemName" id="itemName" placeholder="商品名称" required/>
+                    </label>
+                    <small class="error">请填写商品名称</small>
                 </div>
                 <div class="small-4 columns">
                     <label for="itemPrice">商品价格
