@@ -74,7 +74,6 @@ module.exports = function(passport){
         });
     });
     router.post('/itemCreation', isAdmin, function (req, res) {
-        //TODO: need to check whether any existing item has the name yet.
         //check for the passed in object and define variables.
         var itemName = req.body.itemName,
             itemDes = req.body.itemDes,
@@ -86,46 +85,53 @@ module.exports = function(passport){
             asyncTasks = [],
             success = 'success';
         if (itemName && itemDes && itemAlias && itemImages && itemCategory && itemPrice) {
-            var fs = require('fs');
-            if (typeof itemImages === 'string') {
-                itemImages = [itemImages];
-            }
-            itemImages.forEach(function (ele, ind, list) {
-                asyncTasks.push(function (callback) {
-                    fs.writeFile('public/images/items/' + itemAlias + '-' + ind + '.png', ele, 'base64', function (err) {
-                        err = 1;
-                        if (err) {
-                            console.log(err);
-                            errorContainer.push(err);
-                        }
-                        callback();
+            //Check whether any existing item has the name yet.
+            models.item.findOne({ 'alias': itemAlias}, function (err, item) {
+                if (!item) {
+                    var fs = require('fs');
+                    if (typeof itemImages === 'string') {
+                        itemImages = [itemImages];
+                    }
+                    itemImages.forEach(function (ele, ind, list) {
+                        asyncTasks.push(function (callback) {
+                            fs.writeFile('public/images/items/' + itemAlias + '-' + ind + '.png', ele, 'base64', function (err) {
+                                if (err) {
+                                    console.log(err);
+                                    errorContainer.push(err);
+                                }
+                                callback();
+                            });
+                        });
                     });
-                });
-            });
-            async.parallel(asyncTasks, function() {
-                if (!errorContainer.length) {
-                    var newItem = new models.item();
-                    newItem.name = itemName;
-                    newItem.alias = itemAlias;
-                    newItem.description = itemDes;
-                    newItem.price = itemPrice;
-                    newItem.categoryId = parseInt(itemCategory, 10);
-                    // save the user
-                    newItem.save(function(err) {
-                        if (err){
-                            console.log('Error in Saving item: ' + err);
-                            errorContainer.push(err);
-                            req.flash('message', 'Error in Saving item: ' + err);
-                            req.flash()
+                    async.parallel(asyncTasks, function() {
+                        if (!errorContainer.length) {
+                            var newItem = new models.item();
+                            newItem.name = itemName;
+                            newItem.alias = itemAlias;
+                            newItem.description = itemDes;
+                            newItem.price = itemPrice;
+                            newItem.categoryId = parseInt(itemCategory, 10);
+                            // save the user
+                            newItem.save(function(err) {
+                                if (err){
+                                    console.log('Error in Saving item: ' + err);
+                                    errorContainer.push(err);
+                                    req.flash('message', 'Error in Saving item: ' + err);
+                                    req.flash()
+                                } else {
+                                    console.log('Item saved succesfully');
+                                    req.flash('message', 'Item Saved Successfully!');
+                                    req.flash('success', true);
+                                }
+                                res.send(req.flash());
+                            });
                         } else {
-                            console.log('Item saved succesfully');
-                            req.flash('message', 'Item Saved Successfully!');
-                            req.flash('success', true);
+                            req.flash('message', 'Something wrong with image saving.');
+                            res.send(req.flash());
                         }
-                        res.send(req.flash());
                     });
                 } else {
-                    req.flash('message', 'Something wrong with image saving.');
+                    req.flash('message', 'An item with the same alias exists already!');
                     res.send(req.flash());
                 }
             });

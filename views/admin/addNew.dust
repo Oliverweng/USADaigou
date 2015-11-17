@@ -64,11 +64,7 @@
         </form>
         <div class="row">
             <div class="small-12 columns">
-                <div data-alert class="alert-box success radius js-success-message hidden">
-                    <a href="#" class="close">&times;</a>
-                </div>
-                <div data-alert class="alert-box alert radius js-error-message hidden">
-                    <a href="#" class="close">&times;</a>
+                <div data-alert class="alert-box radius js-message hidden">
                 </div>
             </div>
         </div>

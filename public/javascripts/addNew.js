@@ -12,8 +12,7 @@ require(['jquery', 'underscore', 'multiFile'], function ($, _) {
                 itemAlias = $('#itemAlias').val(),
                 itemCategory = $('#itemCategory').val(),
                 itemPrice = $('#itemPrice').val(),
-                $errorMessage = $('.js-error-message'),
-                $successMessage = $('.js-success-message');
+                $messageContainer = $('.js-message');
             if (images && images.length > 0 && images.length <= 5) {
                 var data = {
                     itemCategory: itemCategory, 
@@ -30,13 +29,13 @@ require(['jquery', 'underscore', 'multiFile'], function ($, _) {
                     dataType: 'json'
                 }).done(function (data) {
                     if (data.success) {
-                        $successMessage.prepend(data.message).removeClass('hidden');
+                        $messageContainer.prepend(data.message).removeClass('hidden alert success').addClass('success');
                     } else {
-                        $errorMessage.prepend(data.message).removeClass('hidden');
+                        $messageContainer.prepend(data.message).removeClass('hidden alert success').addClass('alert');
                     }
                 });
             } else {
-                $errorMessage.prepend('At least 1 image is needed and no more than 5 images.').removeClass('hidden');
+                $messageContainer.prepend('At least 1 image is needed and no more than 5 images.').removeClass('hidden alert success').addClass('alert');
             }
         });
     });
