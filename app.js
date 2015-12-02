@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var cons = require('consolidate');
 var passport = require('passport');
+var cloudinary = require('cloudinary');
 
 //DB connection
 var dbConfig = require('./db');
@@ -23,6 +24,13 @@ app.engine('dust', cons.dust);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'dust');
 app.set('template_engine', 'dust');
+
+//config cloudinary, the image upload platform
+cloudinary.config({ 
+    cloud_name: 'daigouusaimages',
+    api_key: '191682981685313',
+    api_secret: '3tKEKXFpkfWQxMDVt6Lj2jbEu2o'
+});
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));

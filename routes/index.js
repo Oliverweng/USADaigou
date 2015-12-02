@@ -3,6 +3,19 @@ var dbCalls = require('../dbCalls');
 var router = express.Router();
 var models = require('../mongooseModels');
 var async = require('async');
+var multer  = require('multer');
+var count = 0;
+var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'public/images/items/');
+    },
+    filename: function (req, file, cb) {
+        //use count to distinguish the file name.
+        cb(null, req.body.itemAlias + '-' + count + '.png');
+        count++;
+    }
+});
+var upload = multer({storage: storage});
 
 var isAuthenticated = function (req, res, next) {
     // if user is authenticated in the session, call the next() to call the next request handler 
@@ -73,34 +86,38 @@ module.exports = function(passport){
             
         });
     });
-    router.post('/itemCreation', isAdmin, function (req, res) {
+    router.post('/itemCreation', isAdmin, upload.array('itemImages', 5), function (req, res) {
         //check for the passed in object and define variables.
         var itemName = req.body.itemName,
-            itemDes = req.body.itemDes,
+            itemDes = req.body.itemDescription,
             itemAlias = req.body.itemAlias,
             itemPrice = req.body.itemPrice,
-            itemImages = req.body['itemImages[]'],
             itemCategory = req.body.itemCategory,
             errorContainer = [],
             asyncTasks = [],
             success = 'success';
-        if (itemName && itemDes && itemAlias && itemImages && itemCategory && itemPrice) {
+        if (itemName && itemDes && itemAlias && itemCategory && itemPrice) {
             //Check whether any existing item has the name yet.
             models.item.findOne({ 'alias': itemAlias}, function (err, item) {
                 if (!item) {
                     var fs = require('fs');
-                    if (typeof itemImages === 'string') {
-                        itemImages = [itemImages];
-                    }
-                    itemImages.forEach(function (ele, ind, list) {
-                        asyncTasks.push(function (callback) {
-                            fs.writeFile('public/images/items/' + itemAlias + '-' + ind + '.png', ele, 'base64', function (err) {
-                                if (err) {
-                                    console.log(err);
-                                    errorContainer.push(err);
+                    asyncTasks.push(function (callback) {
+                        //TODO: instead of writing file to system, I need to use cloudinary
+                        fs.readdir('public/images/items/', function (err, files) {
+                            if (err) {
+                                console.log(err);
+                                errorContainer.push(err);
+                            }
+                            var flag = false;
+                            files.forEach(function (ele, ind, list) {
+                                if (ele.indexOf(itemAlias) !== -1 ) {
+                                    flag = true;
                                 }
-                                callback();
                             });
+                            if (!flag) {
+                                errorContainer.push('images did not get uploaded to the items folder!');
+                            }
+                            callback();
                         });
                     });
                     async.parallel(asyncTasks, function() {
@@ -139,6 +156,7 @@ module.exports = function(passport){
             req.flash('message', 'Please fill out all the fields!');
             res.send(req.flash());
         }
+        count = 0;
     });
 
     /* Handle Logout */

@@ -11,7 +11,7 @@
                 <h1>请填入商品信息</h1>
             </div>
         </div>
-        <form data-abide="ajax" id="addNewForm" >
+        <form data-abide id="addNewForm" action="/itemCreation" method="POST" enctype="multipart/form-data">
             <div class="row">
                 <div class="small-4 columns">
                     <label for="itemAlias">商品简称(英文)
@@ -52,7 +52,7 @@
                 </div>
                 <div class="small-6 columns">
                     <label for="itemImages">商品图片上传
-                        <input type="file" name="itemImages" class="multi with-preview" />
+                        <input type="file" name="itemImages" multiple class="multi with-preview" accept="png|jpg" data-maxfile="300" maxlength="5" />
                     </label>
                 </div>
             </div>
@@ -70,6 +70,8 @@
         </div>
 </div>
 {/dynamicBody}
-<script type="text/javascript">
-    require(['javascripts/addNew']);
-</script>
+{<dynamicScript}
+    <script type="text/javascript">
+        require(['multiFile']);
+    </script>
+{/dynamicScript}
