@@ -15,7 +15,6 @@ dbCalls.getContent = function (req, callback) {
                 context.user.isAdmin = true;
             }
         }
-        context.message = req.flash('message');
         context.headerCategories = docs;
 
         callback(context);

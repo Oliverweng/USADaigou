@@ -3,10 +3,13 @@ var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
+var expressSession = require('express-session');
 var bodyParser = require('body-parser');
 var cons = require('consolidate');
 var passport = require('passport');
 var cloudinary = require('cloudinary');
+var flash = require('connect-flash');
+var passport = require('passport');
 
 //DB connection
 var dbConfig = require('./db');
@@ -41,16 +44,20 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Configuring Passport
-var passport = require('passport');
-var expressSession = require('express-session');
 app.use(expressSession({secret: 'myScretKey'}));
 app.use(passport.initialize());
 app.use(passport.session());
 
 // Using the flash middleware provided by connect-flash to store messages in session
 // and displaying in templates
-var flash = require('connect-flash');
+app.use(cookieParser('secret'));
+app.use(expressSession({cookie: { maxAge: 60000 }}));
 app.use(flash());
+app.use(function(req, res, next) {
+    res.locals.flag = req.flash('isSuccess');
+    res.locals.message = req.flash('message');
+    next();
+});
 
 // Initialize Passport
 var initPassport = require('./passport/init');

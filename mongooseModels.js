@@ -26,7 +26,8 @@ var itemsSchema = new mongoose.Schema({
     alias: String,
     description: String,
     price: Number,
-    categoryId: Number
+    categoryId: Number,
+    images: []
 }, { collection: 'itemsCollection' });
 
 
