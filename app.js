@@ -17,6 +17,7 @@ var mongoose = require('mongoose');
 var autoIncrement = require('mongoose-auto-increment');
 mongoose.connect(dbConfig.url);
 autoIncrement.initialize(mongoose);
+var dbCalls = require('./dbCalls');
 
 var app = express();
 
@@ -56,7 +57,7 @@ app.use(flash());
 app.use(function(req, res, next) {
     res.locals.flag = req.flash('isSuccess');
     res.locals.message = req.flash('message');
-    next();
+    dbCalls.getContent(req, res, next);
 });
 
 // Initialize Passport

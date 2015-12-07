@@ -52,7 +52,7 @@
                 </div>
                 <div class="small-6 columns">
                     <label for="itemImages">商品图片上传
-                        <input type="file" name="itemImages" multiple class="multi with-preview" accept="png|jpg" data-maxfile="300" maxlength="5" />
+                        <input type="file" name="itemImages" multiple class="multi with-preview" accept="png|jpg" data-maxfile="600" maxlength="5" />
                     </label>
                 </div>
             </div>

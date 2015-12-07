@@ -1,5 +1,4 @@
 var express = require('express');
-var dbCalls = require('../dbCalls');
 var router = express.Router();
 var models = require('../mongooseModels');
 var async = require('async');
@@ -29,19 +28,13 @@ module.exports = function(passport){
 
     /* GET login page. */
     router.get('/', function(req, res) {
-        dbCalls.getContent(req, function (content) {
-            // Display main page.
-            res.render('index', content);
-        });
+        // Display main page.
+        res.render('index');
     });
 
     /* Login page*/
     router.get('/login', function(req, res) {
-        // Display the Login page with any flash message, if any
-        dbCalls.getContent(req, function (content) {
-            // Display main page.
-            res.render('login', content);
-        });
+        res.render('login');
     });
 
     /* Handle Login POST */
@@ -63,18 +56,27 @@ module.exports = function(passport){
         failureFlash : true  
     }));
 
+    /* Handle Item List Page*/
+    router.get('/itemList', function(req, res) {
+        var id = req.query.catId,
+            content = {};
+        if (id) {
+            models.item.find({categoryId: id}, function(e, docs){
+                content.items = docs;
+                res.render('itemList', content);
+            });
+        }
+    });
+
     /* GET Admin Page */
     router.get('/admin/:page*?', isAdmin, function(req, res){
         var pageName = req.params.page;
-        dbCalls.getContent(req, function (content) {
             // Display main page.
-            if (pageName) {
-                res.render('admin/' + pageName, content);
-            } else {
-                res.send('The page doesn\'t exist');
-            }
-            
-        });
+        if (pageName) {
+            res.render('admin/' + pageName);
+        } else {
+            res.send('The page doesn\'t exist');
+        }
     });
     router.post('/itemCreation', isAdmin, upload.array('itemImages', 5), function (req, res) {
         //check for the passed in object and define variables.

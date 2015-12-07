@@ -1,0 +1,16 @@
+{>"page_parent" /}
+
+
+{<dynamicBody}
+    <div class="row">
+        {#items}
+            <div class="large-3 medium-4 small-6 columns left">
+                <img src="{images[0]}">
+                <div class="panel">
+                    <h5>{name}</h5>
+                    <h6 class="subheader">${price}</h6>
+                </div>
+            </div>
+        {/items}
+    </div> 
+{/dynamicBody}

@@ -4,22 +4,18 @@
 var models = require('./mongooseModels');
 var dbCalls = {};
 
-dbCalls.getContent = function (req, callback) {
+dbCalls.getContent = function (req, res, next) {
     // var categoriesCollection = db.get('productCategories');
     models.category.find({}, function(e, docs){
-        var context = {};
-        context.isAuthenticated = req.isAuthenticated();
-        if (context.isAuthenticated) {
-            context.user = req.user;
-            if (req.user.role === 'admin') {
-                context.user.isAdmin = true;
+        if (req.isAuthenticated()) {
+            res.locals.user = req.user;
+            if (res.locals.user.role === 'admin') {
+                res.locals.user.isAdmin = true;
             }
         }
-        context.headerCategories = docs;
-
-        callback(context);
+        res.locals.headerCategories = docs;
+        next();
     });
 };
-
 
 module.exports = dbCalls;
