@@ -40,9 +40,6 @@
             <div class="columns small-12">
                     {>"partials/header_categories" /}
             </div>
-            <div class="columns small-3 padding-top-6">
-
-            </div>
         </div>
   </nav>
 </div>

@@ -63,6 +63,7 @@ module.exports = function(passport){
         if (id) {
             models.item.find({categoryId: id}, function(e, docs){
                 content.items = docs;
+                content.currentCatId = id;
                 res.render('itemList', content);
             });
         }

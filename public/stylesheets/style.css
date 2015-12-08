@@ -159,6 +159,14 @@ nav.nav-bar {
 .seprator a:last-child {
     border-right: none;
 }
+.item-tile img {
+    object-fit: cover;
+    width: 100%;
+    height: 219px;
+}
+.item-tile .panel {
+    height: 128px;
+}
 /*small screen only*/
 @media only screen and (max-width: 640px) {
 

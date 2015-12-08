@@ -9,6 +9,7 @@ dbCalls.getContent = function (req, res, next) {
     models.category.find({}, function(e, docs){
         if (req.isAuthenticated()) {
             res.locals.user = req.user;
+            res.locals.isAuthenticated = true;
             if (res.locals.user.role === 'admin') {
                 res.locals.user.isAdmin = true;
             }

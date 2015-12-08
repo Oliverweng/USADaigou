@@ -11,6 +11,8 @@
     <link rel="stylesheet" type="text/css" href="/plugins/foundation/foundation-css/foundation.css" />
     <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
     <link rel="stylesheet" href="/plugins/font-awesome/css/font-awesome.min.css">
+    {+dynamicCss}
+    {/dynamicCss}
     <script src="/javascripts/require.js"></script>
     <script src="/javascripts/requirejs.config"></script>
     <script type="text/javascript">

@@ -1,8 +1,22 @@
 {>"page_parent" /}
 
+{<dynamicCss}
+    <!-- Important Owl stylesheet -->
+    <link rel="stylesheet" href="/stylesheets/owl.carousel.css">
+    <!-- Default Theme -->
+    <link rel="stylesheet" href="/stylesheets/owl.theme.css">
+{/dynamicCss}
+
+
+{<dynamicScript}
+    <script>
+        require(['plugins/owl.carousel.min']);
+    </script>
+{/dynamicScript}
+
 
 {<dynamicBody}
-<div class="row">
+{! <div class="row">
     <div class="large-12 columns">
         <div class="row">
             <div class="large-4 small-12 columns">
@@ -83,6 +97,63 @@
             </div>
             </div> 
         </div>
+    </div>
+</div> !}
+<div class="owl-carousel" id="home-slider">
+    <div>
+        <img src="http://placehold.it/2000x750">
+    </div>
+    <div>
+        <img src="http://placehold.it/2000x750">
+    </div>
+    <div>
+        <img src="http://placehold.it/2000x750">
+    </div>
+    <div>
+        <img src="http://placehold.it/2000x750">
+    </div>
+</div>
+
+<div class="row column text-center">
+    <h2>Our Newest Products</h2>
+    <hr>
+</div>
+<div class="row">
+    <div class="large-3 medium-4 small-6 columns item-tile">
+        <a href="#">
+            <img src="http://placehold.it/300x400">
+            <div class="panel">
+                <h5>Nulla At Nulla Justo, Eget</h5>
+                <h6 class="subheader">¥400</h6>
+            </div>
+        </a>
+    </div>
+        <div class="large-3 medium-4 small-6 columns item-tile">
+        <a href="#">
+            <img src="http://placehold.it/300x400">
+            <div class="panel">
+                <h5>Nulla At Nulla Justo, Eget</h5>
+                <h6 class="subheader">¥400</h6>
+            </div>
+        </a>
+    </div>
+        <div class="large-3 medium-4 small-6 columns item-tile">
+        <a href="#">
+            <img src="http://placehold.it/300x400">
+            <div class="panel">
+                <h5>Nulla At Nulla Justo, Eget</h5>
+                <h6 class="subheader">¥400</h6>
+            </div>
+        </a>
+    </div>
+        <div class="large-3 medium-4 small-6 columns item-tile">
+        <a href="#">
+            <img src="http://placehold.it/300x400">
+            <div class="panel">
+                <h5>Nulla At Nulla Justo, Eget</h5>
+                <h6 class="subheader">¥400</h6>
+            </div>
+        </a>
     </div>
 </div>
 {/dynamicBody}
