@@ -66,9 +66,6 @@ body {
 label, p, h1, h2, h3, h4, h5{
     color: #D8D8D8 !important;
 }
-.row {
-    max-width: 64.5rem;
-}
 .body-container {
     min-height: 400px;
 }
@@ -96,7 +93,6 @@ nav.nav-bar {
     height: 140px;
 }
 .header-container {
-    max-width: 62.6rem;
     margin: 0 auto;
 }
 .header-container.fixed {
