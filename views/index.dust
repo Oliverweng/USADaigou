@@ -9,9 +9,15 @@
 
 
 {<dynamicScript}
-    <script>
-        require(['plugins/owl.carousel.min']);
-    </script>
+$(document).ready(function (){
+    require(['plugins/owl.carousel.min'], function () {
+        $('#home-slider').owlCarousel({
+            slideSpeed : 300,
+            paginationSpeed : 400,
+            singleItem:true
+        });
+    });
+});
 {/dynamicScript}
 
 
@@ -31,7 +37,7 @@
         </div>
     </div>
 
-    <div class="row column text-center">
+    <div class="row text-center">
         <h2>Our Newest Products</h2>
         <hr>
     </div>

@@ -51,8 +51,6 @@ app.use(passport.session());
 
 // Using the flash middleware provided by connect-flash to store messages in session
 // and displaying in templates
-app.use(cookieParser('secret'));
-app.use(expressSession({cookie: { maxAge: 60000 }}));
 app.use(flash());
 app.use(function(req, res, next) {
     res.locals.flag = req.flash('isSuccess');

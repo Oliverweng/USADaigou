@@ -24,6 +24,11 @@ var isAdmin = function (req, res, next) {
     res.redirect('/');
 }
 
+var handleErr = function (err, res) {
+    console.log(err);
+    res.send(err);
+}
+
 module.exports = function(passport){
 
     /* GET login page. */
@@ -57,16 +62,28 @@ module.exports = function(passport){
     }));
 
     /* Handle Item List Page*/
-    router.get('/itemList', function(req, res) {
+    router.get('/itemList', function (req, res) {
         var id = req.query.catId,
             content = {};
-        if (id) {
-            models.item.find({categoryId: id}, function(e, docs){
-                content.items = docs;
-                content.currentCatId = id;
-                res.render('itemList', content);
-            });
-        }
+        if (!id) return handleErr('no category id present', res);
+        models.item.find({categoryId: id}, function(e, docs){
+            if(!docs) return handleErr('no items found under the category ID: ' + id, res);
+            content.items = docs;
+            content.currentCatId = id;
+            res.render('itemList', content);
+        });
+    });
+
+    /* Handle Item Detail Page*/
+    router.get('/itemDetail', function (req, res) {
+        var id = req.query.id,
+            content = [];
+        if (!id) return handleErr('no item id present', res);
+        models.item.findById(id, function (err, item) {
+            if (!item) return handleErr('no item found by ID ' + id, res);
+            content.item = item;
+            res.render('itemDetail', content);
+        });
     });
 
     /* GET Admin Page */
@@ -119,7 +136,7 @@ module.exports = function(passport){
                             newItem.price = itemPrice;
                             newItem.categoryId = parseInt(itemCategory, 10);
                             // save the user
-                            newItem.save(function(err) {
+                            newItem.save(function(err, item) {
                                 if (err){
                                     console.log('Error in Saving item: ' + err);
                                     errorContainer = 'Error in Saving item: ' + err;

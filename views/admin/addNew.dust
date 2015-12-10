@@ -72,11 +72,7 @@
 </div>
 {/dynamicBody}
 {<dynamicScript}
-    <script type="text/javascript">
-        require(['jquery'], function ($) {
-            $(document).ready(function () {
-                require(['multiFile']);
-            });
-        });
-    </script>
+    $(document).ready(function () {
+        require(['multiFile']);
+    });
 {/dynamicScript}
