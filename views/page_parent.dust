@@ -8,7 +8,7 @@
         {+dynamicTitle}Daigou-US{/dynamicTitle}
     </title>
     <link rel="shortcut icon" href="/images/us-shopping-logo.ico">
-    <link rel="stylesheet" type="text/css" href="/plugins/foundation/foundation-css/foundation.css" />
+    <link rel="stylesheet" type="text/css" href="/plugins/foundation/foundation.min.css" />
     <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
     <link rel="stylesheet" href="/plugins/font-awesome/css/font-awesome.min.css">
     {+dynamicCss}
@@ -16,7 +16,7 @@
     <script src="/javascripts/require.js"></script>
     <script src="/javascripts/requirejs.config"></script>
     <script type="text/javascript">
-        require(['modernizr', 'global']);
+        require(['javascripts/global']);
     </script>
     {+dynamicScript}
     {/dynamicScript}

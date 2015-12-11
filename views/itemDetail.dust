@@ -61,12 +61,12 @@
     </div>
     <div class="column row">
         <hr>
-        <ul class="tabs" data-tab>
-          <li class="tab-title active"><a href="#panel1">Reviews</a></li>
-          <li class="tab-title"><a href="#panel2">Similar Products</a></li>
+        <ul class="tabs" data-tabs id="example-tabs">
+            <li class="tabs-title is-active"><a href="#panel1" aria-selected="true">Reviews</a></li>
+            <li class="tabs-title"><a href="#panel2">Similar Products</a></li>
         </ul>
-        <div class="tabs-content" >
-            <div class="content active" id="panel1">
+        <div class="tabs-content" data-tabs-content="example-tabs">
+            <div class="tabs-panel is-active" id="panel1">
                 <h4>Reviews</h4>
                 <div class="media-object stack-for-small">
                     <div class="media-object-section">
@@ -101,7 +101,7 @@
                 </label>
                 <button class="button">Submit Review</button>
             </div>
-            <div class="content" id="panel2">
+            <div class="tabs-panel" id="panel2">
                 <div class="row medium-up-3 large-up-5">
                     <div class="column">
                         <img class="thumbnail" src="http://placehold.it/350x200">
