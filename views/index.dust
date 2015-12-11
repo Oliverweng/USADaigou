@@ -9,15 +9,15 @@
 
 
 {<dynamicScript}
-$(document).ready(function (){
-    require(['plugins/owl.carousel.min'], function () {
+<script>
+    require(['jquery', 'owlCarousel'], function ($) {
         $('#home-slider').owlCarousel({
             slideSpeed : 300,
             paginationSpeed : 400,
             singleItem:true
         });
     });
-});
+</script>
 {/dynamicScript}
 
 

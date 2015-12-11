@@ -16,11 +16,10 @@
     <script src="/javascripts/require.js"></script>
     <script src="/javascripts/requirejs.config"></script>
     <script type="text/javascript">
-        require(['jquery', 'modernizr', 'global'], function ($) {
-            {+dynamicScript}
-            {/dynamicScript}
-        });
+        require(['modernizr', 'global']);
     </script>
+    {+dynamicScript}
+    {/dynamicScript}
 </head>
 <body>
     {+dynamicHeader}
