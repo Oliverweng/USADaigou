@@ -4,7 +4,7 @@
 {<dynamicBody}
     <div class="row">
         {#items}
-            <div class="large-3 medium-4 small-6 columns left item-tile">
+            <div class="large-3 medium-4 small-6 columns item-tile">
                 <a href="/itemDetail?id={id}">
                     <img src="{images[0]}">
                     <div class="panel">
@@ -14,5 +14,6 @@
                 </a>
             </div>
         {/items}
+        <div class="columns"></div>
     </div>
 {/dynamicBody}

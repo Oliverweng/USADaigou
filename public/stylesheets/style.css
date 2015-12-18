@@ -14,6 +14,10 @@
 .no-padding-right {
     padding-right: 0 !important;
 }
+.no-padding-l-r{
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+}
 .no-max-width {
     max-width: none !important;
 }
@@ -89,6 +93,9 @@ a span {
     background:      -o-linear-gradient(90deg, #D3959B 10%, #BFE6BA 90%); /* Opera 11.10+ */
     background:         linear-gradient(90deg, #D3959B 10%, #BFE6BA 90%); /* W3C */           
 }
+.contact-overlay p{
+    color: #424242 !important;
+}
 nav.nav-bar {
     height: 140px;
 }
@@ -103,9 +110,6 @@ nav.nav-bar {
 .header-row {
     height: 40px;
     font-size: 13px;
-}
-.header-searchbar.row.collapse {
-    width: 192px;
 }
 .header-searchbar input.search-input {
     height: 26px;
@@ -143,10 +147,7 @@ nav.nav-bar {
 .category.active{
     border-bottom: 3px solid rgba(220, 20, 60, 0.7);
 }
-.category {
-    padding-left: 10px;
-    padding-right: 10px;
-}
+
 .seprator a:nth-child(n) {
     padding-left: 5px;
     padding-right: 5px;
@@ -163,6 +164,7 @@ nav.nav-bar {
 .item-tile .panel {
     height: 128px;
 }
+
 /*small screen only*/
 @media only screen and (max-width: 640px) {
 

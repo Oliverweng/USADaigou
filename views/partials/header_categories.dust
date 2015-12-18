@@ -1,7 +1,9 @@
 {#headerCategories}
+<div class="columns small-2 no-padding-l-r">
     <div class="category left js-category-container {@eq key="{currentCatId}" value="{id}"}active{/eq}">
         <div class="inner text-center">
             <a href="/itemList?catId={id}" class="color-white js-header-category"><img src="/images/{image}.png"/>{name}</a>
         </div>
     </div>
+</div>
 {/headerCategories}
