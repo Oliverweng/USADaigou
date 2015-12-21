@@ -81,8 +81,12 @@ module.exports = function(passport){
         if (!id) return handleErr('no item id present', res);
         models.item.findById(id, function (err, item) {
             if (!item) return handleErr('no item found by ID ' + id, res);
-            content.item = item;
-            res.render('itemDetail', content);
+            models.category.findById(item.categoryId, function (err, category) {
+                if(err) return handleErr('something wrong on category retrieving.', res);
+                item.categoryName = category.name;
+                content.item = item;
+                res.render('itemDetail', content);
+            });
         });
     });
 

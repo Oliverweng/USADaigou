@@ -1,35 +1,30 @@
 {>"page_parent" /}
 
+{<dynamicScript}
+    <script>
+        require(['javascripts/itemDetail']);
+    </script>
+{/dynamicScript}
 
 {<dynamicBody}
     <div class="row columns">
         <nav aria-label="You are here:" role="navigation">
             <ul class="breadcrumbs">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Features</a></li>
-                <li class="disabled">Gene Splicing</li>
-                <li>
-                    <span class="show-for-sr">Current: </span> Cloning
-                </li>
+                <li><a href="/">主页</a></li>
+                <li><a href="/itemList?catId={item.categoryId}">{item.categoryName}</a></li>
+                <li class="disabled">当前: 商品明细</li>
             </ul>
         </nav>
     </div>
     <div class="row">
         <div class="medium-6 columns">
-            <img class="thumbnail" src="http://placehold.it/650x350">
-            <div class="row small-up-4">
-                <div class="column">
-                    <img class="thumbnail" src="http://placehold.it/250x200">
-                </div>
-                <div class="column">
-                    <img class="thumbnail" src="http://placehold.it/250x200">
-                </div>
-                <div class="column">
-                    <img class="thumbnail" src="http://placehold.it/250x200">
-                </div>
-                <div class="column">
-                    <img class="thumbnail" src="http://placehold.it/250x200">
-                </div>
+            <img class="thumbnail" id="js-display-image" src="{item.images[0]}">
+            <div class="row small-up-5">
+                {#item.images}
+                    <div class="column">
+                        <img class="thumbnail js-thumbnail-image" src="{.}">
+                    </div>
+                {/item.images}
             </div>
         </div>
         <div class="medium-6 large-5 columns">

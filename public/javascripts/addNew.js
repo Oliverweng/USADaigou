@@ -12,7 +12,7 @@ require(['jquery', 'underscore'], function ($, _) {
         $('#addNewForm').on('valid.fndtn.abide', function(e) {
             // Handle the submission of the form
             e.preventDefault();
-            var $currentForm = $(e.currentTarget)
+            var $currentForm = $(e.currentTarget);
                 // $images = $('#MultiFile1_list').find('.MultiFile-preview'),
                 //     images = _.map($images, function (element) {
                 //         return $(element).attr('src').replace(/^data:image\/png;base64,/, '');
