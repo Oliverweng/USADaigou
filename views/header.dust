@@ -38,9 +38,8 @@
             </div>
         </div>
         <div class="row header-row third js-sticky-row">
-            <div class="columns small-12 medium-10 large-7 row">
+            <div class="columns small-12 medium-8">
                 {>"partials/header_categories" /}
-                <div class="columns"></div>
             </div>
         </div>
   </nav>

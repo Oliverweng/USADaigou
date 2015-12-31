@@ -5,6 +5,9 @@
 .inline-block {
     display: inline-block;
 }
+.row {
+    max-width: 75rem;
+}
 .margin-top {
     margin-top: 20px;
 }

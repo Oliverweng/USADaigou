@@ -6,12 +6,12 @@
                 <p>© Copyright Oliver Weng.</p>
             </div>
             <div class="large-6 columns footer-link-container text-right">
-                <a data-open="contact-modal"><img src="/images/contact-icon.png" />联系我们</a>
+                <a data-reveal-id="contact-modal"><img src="/images/contact-icon.png" />联系我们</a>
             </div>
         </div>
     </div>
 </footer> 
-<div id="contact-modal" class="reveal contact-overlay" data-reveal>
+<div id="contact-modal" class="reveal contact-overlay reveal-modal small" data-reveal>
     <div class="row">
         <div class="small-5 columns text-center">
             <p><i class="fa fa-qq fa-lg"></i><br/>275271384</p>
@@ -25,7 +25,5 @@
             <img src="/images/weixin-qr.jpg" />
         </div>
     </div>
-    <button class="close-button" data-close aria-label="Close reveal" type="button">
-        <span aria-hidden="true">&times;</span>
-    </button>
+    <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div>
