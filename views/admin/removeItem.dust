@@ -1,0 +1,36 @@
+{>"page_parent" /}
+
+{<dynamicScript}
+<script>
+    require(['jquery'], function ($) {
+        $(document).ready(function () {
+            $('.js-reveal-close').click(function (e) {
+                $('#remove-modal').foundation('reveal', 'close');
+            });
+            $('#removeItem').submit(function (e) {
+                return confirm('Are you sure you want to delete this item?');
+            });
+        });
+    });
+</script>
+{/dynamicScript}
+
+{<dynamicBody}
+    <form data-abide id="removeItem" action="/itemRemove" method="POST">
+        <div class="row">
+            <div class="small-6 medium-3 columns">
+                <label for="itemID" class="right inline">请填写商品ID</label>
+            </div>
+            <div class="small-6 medium-3 columns">
+                <input type="text" id="itemID" name="itemID" placeholder="" required pattern="number">
+                <small class="error">请填写ID!</small>
+            </div>
+            <div class="small-12 medium-3 columns end">
+                <input type="submit" class="button radius" value="下架" />
+            </div>
+        </div>
+    </form>
+    <div data-alert class="alert-box radius {^message}hidden{/message} {?flag}success{:else}alert{/flag}">
+        {message}
+    </div>
+{/dynamicBody}

@@ -7,7 +7,7 @@
     <div class="row padding-top-100">
         <div class="small-12 columns text-center">
             <a href="/admin/addNew" class="button radius large margin-right">上架</a>
-            <a href="#" class="button radius large margin-left">下架</a>
+            <a href="/admin/removeItem" class="button radius large margin-left">下架</a>
         </div>
     </div>
     <h1 class="js-error-message">{message}</h1>

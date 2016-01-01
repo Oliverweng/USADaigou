@@ -6,7 +6,7 @@
         {#items}
             <div class="large-3 medium-4 small-6 columns item-tile">
                 <a href="/itemDetail?id={id}">
-                    <img src="{images[0]}">
+                    <img src="{images[0].url}">
                     <div class="panel">
                         <h5>{name}</h5>
                         <h6 class="subheader">¥{price}</h6>

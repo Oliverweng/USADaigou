@@ -29,6 +29,13 @@ var handleErr = function (err, res) {
     res.send(err);
 }
 
+var itemRemoveCallback = function (item, req, res) {
+    item.remove();
+    req.flash('message', 'Item Removed Successfully!');
+    req.flash('isSuccess', true);
+    res.redirect('/admin/removeItem');
+}
+
 module.exports = function(passport){
 
     /* GET login page. */
@@ -90,6 +97,31 @@ module.exports = function(passport){
         });
     });
 
+    router.post('/itemRemove', function (req, res) {
+        var id = req.body.itemID,
+            imageIDs = [];
+        if (!id) return handleErr('no item id present', res);
+        models.item.findById(parseInt(id, 10), function (err, item) {
+            if (!item) return handleErr('can not find the item', res);
+            if (item.images && Array.isArray(item.images) && item.images.length) {
+                item.images.forEach(function (image, ind, list) {
+                    if (image.publicID) {
+                        imageIDs.push(image.publicID);
+                    }
+                });
+            }
+            if (imageIDs.length) {
+                imageIDs.forEach(function (publicID, ind, list) {
+                    cloudinary.uploader.destroy(publicID, function(result) {
+                        itemRemoveCallback(item, req, res);
+                    });
+                });
+            } else {
+                itemRemoveCallback(item, req, res);
+            }
+        });
+    });
+
     /* GET Admin Page */
     router.get('/admin/:page*?', isAdmin, function(req, res){
         var pageName = req.params.page;
@@ -125,7 +157,7 @@ module.exports = function(passport){
                                     if (result.error) {
                                         errorContainer = result.error;
                                     } else {
-                                        newItem.images.push(result.url);
+                                        newItem.images.push({url: result.url, publicID: result.public_id});
                                     }
                                     callback();
                                 });
@@ -176,6 +208,7 @@ module.exports = function(passport){
 
     return router;
 }
+
 
 
 
