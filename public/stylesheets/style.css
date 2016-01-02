@@ -166,6 +166,14 @@ nav.nav-bar {
 .item-tile .panel {
     height: 128px;
 }
+.price {
+    color: #f40 !important;
+}
+input.quantity-input {
+    width: 39px;
+    height: 33px;
+    padding-top: 5px;
+}
 
 /*small screen only*/
 @media only screen and (max-width: 640px) {
